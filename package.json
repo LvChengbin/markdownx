@@ -1,0 +1,32 @@
+{
+    "name": "kickoff",
+    "version": "0.0.0",
+    "description": "Kicking off",
+    "main": "index.js",
+    "repository": "git@github.com:LvChengbin/markdownx.git",
+    "author": "LvChengbin <lvchengbin59@gmail.com>",
+    "license": "MIT",
+    "private": true,
+    "workspaces": [
+        "packages/*"
+    ],
+    "devDependencies": {
+        "commitizen": "^4.2.3",
+        "cz-conventional-changelog": "^3.3.0",
+        "eslint": "^7.20.0",
+        "eslint_d": "^10.0.2",
+        "husky": "^5.0.9",
+        "pinst": "^2.1.4"
+    },
+    "engines": {
+        "node": ">=14.15.1"
+    },
+    "bugs": {
+        "url": "https://github.com/LvChengbin/kickoff/issues"
+    },
+    "config": {
+        "commitizen": {
+            "path": "cz-conventional-changelog"
+        }
+    }
+}

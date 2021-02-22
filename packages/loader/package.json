@@ -1,0 +1,32 @@
+{
+    "name": "@markdownx/loader",
+    "version": "0.0.0",
+    "main": "dist/index.js",
+    "files": [
+        "dist"
+    ],
+    "author": "LvChengbin <lvchengbin59@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "make": "rm -rf dist && tsc --declaration",
+        "make:watch": "rm -rf dist && tsc --declaration --watch",
+        "test": "jest",
+        "test:watch": "jest --watch",
+        "lint": "eslint src/**/*.ts test/**/*.ts --cache --fix"
+    },
+    "dependencies": {
+        "@markdownx/compiler": "workspace:packages/compiler",
+        "loader-utils": "^2.0.0"
+    },
+    "devDependencies": {
+        "@types/node": "^14.14.31",
+        "@typescript-eslint/eslint-plugin": "^4.15.1",
+        "@typescript-eslint/parser": "^4.15.1",
+        "@ynn/eslint-plugin": "^0.0.5",
+        "eslint": "^7.20.0",
+        "eslint_d": "^10.0.2",
+        "jest": "^26.6.3",
+        "ts-jest": "^26.5.1",
+        "typescript": "^4.1.5"
+    }
+}

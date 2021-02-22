@@ -1,0 +1,6 @@
+{
+    "presets" : [ "@babel/preset-react" ],
+    "plugins" : [
+        [ "import", { "libraryDirectory" : "es", "style" : true } ]
+    ]
+}

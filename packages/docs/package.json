@@ -1,0 +1,43 @@
+{
+    "name": "docs",
+    "version": "0.0.0",
+    "main": "dist/index.js",
+    "files": [
+        "dist"
+    ],
+    "author": "LvChengbin <lvchengbin59@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "make": "rm -rf dist && tsc --declaration",
+        "make:watch": "rm -rf dist && tsc --declaration --watch",
+        "test": "jest",
+        "test:watch": "jest --watch",
+        "start": "webpack",
+        "start:dev": "webpack serve --mode development --host 0.0.0.0 --hot",
+        "lint": "eslint src/**/*.{ts,tsx} test/**/*.{ts,tsx} --cache --fix"
+    },
+    "devDependencies": {
+        "@markdownx/loader": "workspace:packages/loader",
+        "@material-ui/core": "^4.11.3",
+        "@material-ui/styles": "^4.11.3",
+        "@types/react": "^17.0.2",
+        "@types/react-dom": "^17.0.1",
+        "@typescript-eslint/eslint-plugin": "^4.15.1",
+        "@typescript-eslint/parser": "^4.15.1",
+        "@ynn/eslint-plugin": "^0.0.5",
+        "eslint": "^7.20.0",
+        "eslint-plugin-react": "^7.22.0",
+        "eslint_d": "^10.0.2",
+        "html-webpack-plugin": "^5.2.0",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "ts-loader": "^8.0.17",
+        "typescript": "^4.1.5",
+        "webpack": "^5.23.0",
+        "webpack-cli": "^4.5.0",
+        "webpack-dev-server": "^3.11.2"
+    },
+    "dependencies": {
+        "@markdownx/renderers": "workspace:packages/renderers"
+    }
+}

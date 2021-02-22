@@ -1,0 +1,33 @@
+/******************************************************************
+ * Copyright (C) 2020 LvChengbin
+ *
+ * File: src/index.ts
+ * Author: LvChengbin<lvchengbin59@gmail.com>
+ * Time: 05/12/2020
+ * Description:
+ ******************************************************************/
+
+import compile, { frags } from '@markdownx/compiler';
+import qs from 'querystring';
+import { getOptions } from 'loader-utils';
+
+export default function( this: any, source: string ): string { // eslint-disable-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
+    const { resourcePath, resourceQuery } = this;
+    const query = qs.parse( this.resourceQuery.slice( 1 ) );
+
+    if( query.pickId ) {
+        const { content } = frags.get( query.pickId as string )!; // eslint-disable-line @typescript-eslint/no-non-null-assertion
+        // frags.delete( query.pickId as string );
+        if( content ) return content;
+        this.emitError( new Error( `Cannot pick content from "${query.pick}"` ) );
+        return '';
+    }
+
+    const options = {
+        path : resourcePath,
+        query : resourceQuery,
+        ...getOptions( this )
+    };
+
+    return compile( options )( source );
+}
