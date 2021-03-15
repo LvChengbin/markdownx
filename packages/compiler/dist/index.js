@@ -51,7 +51,7 @@ exports.default = (options) => {
             if (token.type === 'code') {
                 const id = index_counter_1.default();
                 const moduleId = `MDX_CODE_MODULE_${id}`;
-                const parsed = parser_1.default.code.token(token, { id, moduleId });
+                const parsed = parser_1.default.code.token(token, { moduleId });
                 const { imports, token: parsedToken } = parsed;
                 if (parsedToken.invocation) {
                     imports.forEach(x => {

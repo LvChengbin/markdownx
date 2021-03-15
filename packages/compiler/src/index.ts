@@ -53,7 +53,7 @@ export default ( options: CompileOptions ): ( source: string ) => string => {
             if( token.type === 'code' ) {
                 const id = increment();
                 const moduleId = `MDX_CODE_MODULE_${id}`;
-                const parsed = parser.code.token( token, { id, moduleId } );
+                const parsed = parser.code.token( token, { moduleId } );
                 const { imports, token : parsedToken } = parsed;
 
                 if( parsedToken.invocation ) {

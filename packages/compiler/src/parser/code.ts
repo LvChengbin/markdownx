@@ -10,7 +10,6 @@
 import { Tokens } from 'marked';
 
 export type ParseCodeTokenOptions = {
-    id: string | number;
     moduleId: string;
 };
 

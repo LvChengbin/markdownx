@@ -9,7 +9,7 @@
 
 import React from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import IndexMDX from '@@markdown';
+import IndexMDX from '../markdown';
 
 const useStyles = makeStyles( ( theme: Theme ) => {
     return createStyles( {
