@@ -105,9 +105,7 @@ export default ( options: CompileOptions ): ( source: string ) => string => {
 
     return ( str: string ): string => {
 
-        let output = marked( str )
-            .replace( /(?<=<[^>]+?\s+)((class)(=("|').*?\\4)?)/g, 'className' ) // class => className
-            .replace( /<!--[\s\S]*?-->/g, '' );
+        let output = marked( str.replace( /(?<=<[^>]+?\s+)((class)(=("|').*?\\4)?)/g, 'className' ).replace( /<!--[\s\S]*?-->/g, '' ) )
 
         if( mixedRenderers.container ) {
             const { imports, exec } = mixedRenderers.container();

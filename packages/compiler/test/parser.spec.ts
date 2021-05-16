@@ -18,14 +18,14 @@ describe( 'parser', () => {
             const fn = parser.code.interpolate;
 
             it( 'empty string', () => {
-                expect( fn( '', {} ) ).toEqual( {
+                expect( fn( '', { moduleId : '' } ) ).toEqual( {
                     imports : [],
                     invocation : ''
                 } );
             } );
 
             it( 'template without vars', () => {
-                expect( fn( '<Button />', {} ) ).toEqual( {
+                expect( fn( '<Button />', { moduleId : '' } ) ).toEqual( {
                     imports : [],
                     invocation : '<Button />'
                 } );
@@ -83,7 +83,6 @@ describe( 'parser', () => {
                     lang : 'jsx {{{ <${MODULE} /> }}}',
                     text : ' alert( 100 );'
                 }, {
-                    id : 1,
                     moduleId : 'M1'
                 } ) ).toEqual( {
                     imports : [ 'M1' ],
