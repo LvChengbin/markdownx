@@ -8,17 +8,12 @@
  ******************************************************************/
 
 module.exports = {
-    preset : 'ts-jest',
-    testMatch : [
-        '**/test/**/*.spec.ts'
-    ],
-    coverageReporters : [
-        'text-summary',
-        'text',
-        'lcov'
-    ],
+    ...require( '../../jest.config.js' ),
+    rootDir : __dirname,
+    name : '@markdownx/loader',
+    displayName : '@markdownx/loader',
     collectCoverageFrom : [
-        'src/**/*.ts'
-    ],
-    testEnvironment : 'node'
+        'src/**/*.ts',
+        '!**/*.d.ts'
+    ]
 };

@@ -1,6 +1,6 @@
 {
     "name": "@markdownx/loader",
-    "version": "0.0.0",
+    "version": "0.0.6",
     "main": "dist/index.js",
     "files": [
         "dist"
@@ -8,11 +8,12 @@
     "author": "LvChengbin <lvchengbin59@gmail.com>",
     "license": "MIT",
     "scripts": {
-        "make": "rm -rf dist && tsc --declaration",
-        "make:watch": "rm -rf dist && tsc --declaration --watch",
+        "clean" : "rm -rf lib",
+        "build" : "yarn clean && tsc -b -v",
         "test": "jest",
-        "test:watch": "jest --watch",
-        "lint": "eslint src/**/*.ts test/**/*.ts --cache --fix"
+        "lint": "eslint {src,test}/**/*.ts --cache --fix",
+        "postpack" : "run clean",
+        "prepack" : "run build"
     },
     "dependencies": {
         "@markdownx/compiler": "workspace:packages/compiler",
@@ -28,5 +29,12 @@
         "jest": "^26.6.3",
         "ts-jest": "^26.5.3",
         "typescript": "^4.2.3"
+    },
+    "peerDependencies": {
+        "@material-ui/core": "*",
+        "@material-ui/icons": "*",
+        "@material-ui/styles": "*",
+        "react": "*",
+        "react-dom": "*"
     }
 }
