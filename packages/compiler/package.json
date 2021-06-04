@@ -1,6 +1,6 @@
 {
     "name": "@markdownx/compiler",
-    "version": "0.0.0",
+    "version": "0.0.5",
     "main": "dist/index.js",
     "files": [
         "dist"
@@ -8,15 +8,12 @@
     "author": "LvChengbin <lvchengbin59@gmail.com>",
     "license": "MIT",
     "scripts": {
-        "make": "rm -rf dist && tsc --declaration",
-        "make:watch": "rm -rf dist && tsc --declaration --watch",
-        "make:replace-internal-path": "node scripts/replace-internal-path.js",
-        "make:production": "rm -rf dist && tsc --declaration && yarn make:replace-internal-path",
-        "doc:start": "webpack serve --config build/webpack.doc.config.js --mode development --host 0.0.0.0 --hot",
-        "doc:build": "webpack --config build/webpack.doc.config.js --mode development",
+        "clean": "rm -rf lib",
+        "build": "yarn clean && tsc -b -v",
         "test": "jest",
-        "test:watch": "jest --watch",
-        "lint": "eslint src/**/*.ts test/**/*.ts --cache --fix --ignore-path .eslintignore"
+        "lint": "eslint {src,test}/**/*.ts --cache --fix --ignore-path .eslintignore",
+        "postpack": "run clean",
+        "prepack": "run build"
     },
     "devDependencies": {
         "@types/jest": "^26.0.20",
@@ -35,5 +32,12 @@
         "escape-string-regexp": "^4.0.0",
         "marked": "^2.0.1",
         "query-string": "^6.14.1"
+    },
+    "peerDependencies": {
+        "@material-ui/core": "*",
+        "@material-ui/icons": "*",
+        "@material-ui/styles": "*",
+        "react": "*",
+        "react-dom": "*"
     }
 }
