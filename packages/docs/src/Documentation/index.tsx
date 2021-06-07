@@ -11,10 +11,10 @@ import React from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import IndexMDX from '../markdown';
 
-const useStyles = makeStyles( ( theme: Theme ) => {
+const useStyles = makeStyles( ( { spacing }: Theme ) => {
     return createStyles( {
         root : {
-            padding : `${theme.spacing( 3 )}px ${theme.spacing( 4 )}px`
+            padding : `${spacing( 3 )}px ${spacing( 4 )}px`
         }
     } );
 } );

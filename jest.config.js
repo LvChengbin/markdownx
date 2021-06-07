@@ -11,7 +11,7 @@ module.exports = {
     preset : 'ts-jest',
     setupFilesAfterEnv : [ 'jest-extended' ],
     testMatch : [
-        '**/test/**/*.spec.ts'
+        '**/test/**/*.spec.ts?(x)'
     ],
     coverageReporters : [
         'text-summary',
@@ -19,7 +19,7 @@ module.exports = {
         'lcov'
     ],
     collectCoverageFrom : [
-        '**/src/**/*.ts',
+        '**/src/**/*.ts(x)',
         '!**/*.d.ts'
     ],
     testEnvironment : 'node',
@@ -29,9 +29,9 @@ module.exports = {
         }
     },
     transformIgnorePatterns : [
-        '\\.pnp\\.[^\\\/]+$'
+        '\\.pnp\\.[^\\/]+$'
     ],
     moduleNameMapper : {
         '@markdownx/(.*)' : `${__dirname}/packages/$1/src/index.ts`
     }
-}
+};

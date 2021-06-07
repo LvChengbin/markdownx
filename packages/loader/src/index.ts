@@ -9,14 +9,14 @@
 
 import compile, { frags } from '@markdownx/compiler';
 import qs from 'querystring';
-import { getOptions } from 'loader-utils';
+import { getOptions, FragsCache } from 'loader-utils';
 
-export default function( this: any, source: string ): string { // eslint-disable-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
+export default function( this: FragsCache, source: string ): string {
     const { resourcePath, resourceQuery } = this;
     const query = qs.parse( this.resourceQuery.slice( 1 ) );
 
     if( query.pickId ) {
-        const { content } = frags.get( query.pickId as string )!; // eslint-disable-line @typescript-eslint/no-non-null-assertion
+        const { content } = frags.get( query.pickId as string ) as FragsCache;
         // frags.delete( query.pickId as string );
         if( content ) return content;
         this.emitError( new Error( `Cannot pick content from "${query.pick}"` ) );

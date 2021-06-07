@@ -58,12 +58,12 @@ function interpolate( tpl: string, options: ParseCodeTokenOptions ): {
  */
 function token( token: Tokens.Code, options: ParseCodeTokenOptions ): {
     imports: string[];
-    token: Tokens.code & { invocation: string };
+    token: Tokens.Code & { invocation: string };
 } {
     const { raw = '', lang = '', text = '' } = token;
 
     const matches = raw.split( /[\n\r]/ )[ 0 ]?.match( /\{{3}(.*?)\}{3}/ );
-    const { imports = [], invocation = null } = matches ? interpolate( matches[ 1 ], options ) : {};
+    const { imports = [], invocation = '' } = matches ? interpolate( matches[ 1 ], options ) : {};
 
     return {
         imports,
