@@ -7,9 +7,9 @@ node_js:
 cache:
     directories:
         - .yarn
-script:
+scripts:
     - yarn lint:all
     - yarn test:all --coverage
-after_script:
     - yarn add codecov
+after_success:
     - yarn codecov
