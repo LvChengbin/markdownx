@@ -7,16 +7,13 @@
  * Description:
  ******************************************************************/
 
-const base = require( '../../jest.config.js' );
-
 module.exports = {
-    ...base,
-    setupFilesAfterEnv : [ ...base.setupFilesAfterEnv, '@testing-library/jest-dom' ],
-    rootDir : __dirname,
+    ...require( '../../jest.config.js' ),
+    // rootDir : __dirname,
     name : '@markdownx/compiler',
     displayName : '@markdownx/compiler',
     collectCoverageFrom : [
-        'src/**/*.ts',
+        'src/**/*.ts?(x)',
         '!**/*.d.ts'
     ]
 };
