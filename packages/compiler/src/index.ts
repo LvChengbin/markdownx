@@ -9,7 +9,7 @@
 
 import qs from 'query-string';
 import marked from 'marked';
-import renderers from '@markdownx/renderers';
+import renderers from './renderers';
 import { frags } from './frags';
 import increment from './index-counter';
 import parser from './parser';
@@ -45,6 +45,7 @@ export default ( options: CompileOptions ): ( source: string ) => string => {
     const importPool: Set<[string, string?]> = new Set();
     const toc: { text: string; level: number }[] = [];
 
+    // @ts-expect-error marked.defaults is readonly but I really need to reset the content here
     marked.defaults = { ...markedDefaults };
     marked.setOptions( {} );
 
@@ -78,7 +79,7 @@ export default ( options: CompileOptions ): ( source: string ) => string => {
 
                     Object.assign( token, parsedToken );
 
-                    token.lang += ` {{{${token.invocation}}}}`;
+                    token.lang += ` {{{${parsedToken.invocation}}}}`;
                 }
             }
         },
@@ -105,7 +106,7 @@ export default ( options: CompileOptions ): ( source: string ) => string => {
 
     return ( str: string ): string => {
 
-        let output = marked( str.replace( /(?<=<[^>]+?\s+)((class)(=("|').*?\\4)?)/g, 'className' ).replace( /<!--[\s\S]*?-->/g, '' ) )
+        let output = marked( str.replace( /(?<=<[^>]+?\s+)((class)(=("|').*?\\4)?)/g, 'className' ).replace( /<!--[\s\S]*?-->/g, '' ) );
 
         if( mixedRenderers.container ) {
             const { imports, exec } = mixedRenderers.container();

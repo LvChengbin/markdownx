@@ -7,8 +7,11 @@
  * Description:
  ******************************************************************/
 
+const base = require( '../../jest.config.js' );
+
 module.exports = {
-    ...require( '../../jest.config.js' ),
+    ...base,
+    setupFilesAfterEnv : [ ...base.setupFilesAfterEnv, '@testing-library/jest-dom' ],
     rootDir : __dirname,
     name : '@markdownx/compiler',
     displayName : '@markdownx/compiler',

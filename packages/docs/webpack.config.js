@@ -16,10 +16,7 @@ module.exports = {
     },
     resolve : {
         extensions : [ '.ts', '.tsx', '.js', '.jsx', '.md', '.mdx' ],
-        symlinks : false,
-        alias : {
-            '@@markdown' : path.resolve( __dirname, 'src/markdown' )
-        }
+        symlinks : false
     },
     module : {
         rules : [ {
