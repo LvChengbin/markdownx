@@ -5543,7 +5543,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["html-webpack-plugin", "virtual:de4bf54a777135b8d60a2c1bc2cf7d39bd0fa16a9131c1af77548d129c9a717e7f375cc137473742e792217a8989b7749d6c0934ca8eca0d7787e968286b7135#npm:5.3.1"],
             ["react", "npm:17.0.1"],
             ["react-dom", "virtual:de4bf54a777135b8d60a2c1bc2cf7d39bd0fa16a9131c1af77548d129c9a717e7f375cc137473742e792217a8989b7749d6c0934ca8eca0d7787e968286b7135#npm:17.0.1"],
-            ["ts-loader", "virtual:de4bf54a777135b8d60a2c1bc2cf7d39bd0fa16a9131c1af77548d129c9a717e7f375cc137473742e792217a8989b7749d6c0934ca8eca0d7787e968286b7135#npm:9.2.3"],
+            ["ts-loader", "virtual:de4bf54a777135b8d60a2c1bc2cf7d39bd0fa16a9131c1af77548d129c9a717e7f375cc137473742e792217a8989b7749d6c0934ca8eca0d7787e968286b7135#npm:8.3.0"],
             ["typescript", "patch:typescript@npm%3A4.3.2#~builtin<compat/typescript>::version=4.3.2&hash=d8b4e7"],
             ["webpack", "virtual:de4bf54a777135b8d60a2c1bc2cf7d39bd0fa16a9131c1af77548d129c9a717e7f375cc137473742e792217a8989b7749d6c0934ca8eca0d7787e968286b7135#npm:5.38.1"],
             ["webpack-cli", "virtual:de4bf54a777135b8d60a2c1bc2cf7d39bd0fa16a9131c1af77548d129c9a717e7f375cc137473742e792217a8989b7749d6c0934ca8eca0d7787e968286b7135#npm:4.7.0"],
@@ -5764,6 +5764,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["enhanced-resolve", [
+        ["npm:4.5.0", {
+          "packageLocation": "./.yarn/cache/enhanced-resolve-npm-4.5.0-1bcc7900d2-4d87488584.zip/node_modules/enhanced-resolve/",
+          "packageDependencies": [
+            ["enhanced-resolve", "npm:4.5.0"],
+            ["graceful-fs", "npm:4.2.6"],
+            ["memory-fs", "npm:0.5.0"],
+            ["tapable", "npm:1.1.3"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:5.8.2", {
           "packageLocation": "./.yarn/cache/enhanced-resolve-npm-5.8.2-b25228f39b-6e871ec5b1.zip/node_modules/enhanced-resolve/",
           "packageDependencies": [
@@ -10392,6 +10402,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["readable-stream", "npm:2.3.7"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:0.5.0", {
+          "packageLocation": "./.yarn/cache/memory-fs-npm-0.5.0-8be5938449-a9f25b0a8e.zip/node_modules/memory-fs/",
+          "packageDependencies": [
+            ["memory-fs", "npm:0.5.0"],
+            ["errno", "npm:0.1.8"],
+            ["readable-stream", "npm:2.3.7"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["merge", [
@@ -13620,6 +13639,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["tapable", [
+        ["npm:1.1.3", {
+          "packageLocation": "./.yarn/cache/tapable-npm-1.1.3-f1c2843426-53ff4e7c39.zip/node_modules/tapable/",
+          "packageDependencies": [
+            ["tapable", "npm:1.1.3"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:2.2.0", {
           "packageLocation": "./.yarn/cache/tapable-npm-2.2.0-516ee6aa5b-5a7e31ddd2.zip/node_modules/tapable/",
           "packageDependencies": [
@@ -13995,21 +14021,22 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["ts-loader", [
-        ["npm:9.2.3", {
-          "packageLocation": "./.yarn/cache/ts-loader-npm-9.2.3-77457cfe24-6f44795ae4.zip/node_modules/ts-loader/",
+        ["npm:8.3.0", {
+          "packageLocation": "./.yarn/cache/ts-loader-npm-8.3.0-2a35793883-93dd15b553.zip/node_modules/ts-loader/",
           "packageDependencies": [
-            ["ts-loader", "npm:9.2.3"]
+            ["ts-loader", "npm:8.3.0"]
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:de4bf54a777135b8d60a2c1bc2cf7d39bd0fa16a9131c1af77548d129c9a717e7f375cc137473742e792217a8989b7749d6c0934ca8eca0d7787e968286b7135#npm:9.2.3", {
-          "packageLocation": "./.yarn/__virtual__/ts-loader-virtual-f2a8bdfc42/0/cache/ts-loader-npm-9.2.3-77457cfe24-6f44795ae4.zip/node_modules/ts-loader/",
+        ["virtual:de4bf54a777135b8d60a2c1bc2cf7d39bd0fa16a9131c1af77548d129c9a717e7f375cc137473742e792217a8989b7749d6c0934ca8eca0d7787e968286b7135#npm:8.3.0", {
+          "packageLocation": "./.yarn/__virtual__/ts-loader-virtual-3320a5a830/0/cache/ts-loader-npm-8.3.0-2a35793883-93dd15b553.zip/node_modules/ts-loader/",
           "packageDependencies": [
-            ["ts-loader", "virtual:de4bf54a777135b8d60a2c1bc2cf7d39bd0fa16a9131c1af77548d129c9a717e7f375cc137473742e792217a8989b7749d6c0934ca8eca0d7787e968286b7135#npm:9.2.3"],
+            ["ts-loader", "virtual:de4bf54a777135b8d60a2c1bc2cf7d39bd0fa16a9131c1af77548d129c9a717e7f375cc137473742e792217a8989b7749d6c0934ca8eca0d7787e968286b7135#npm:8.3.0"],
             ["@types/typescript", null],
             ["@types/webpack", null],
             ["chalk", "npm:4.1.0"],
-            ["enhanced-resolve", "npm:5.8.2"],
+            ["enhanced-resolve", "npm:4.5.0"],
+            ["loader-utils", "npm:2.0.0"],
             ["micromatch", "npm:4.0.2"],
             ["semver", "npm:7.3.4"],
             ["typescript", "patch:typescript@npm%3A4.3.2#~builtin<compat/typescript>::version=4.3.2&hash=d8b4e7"],
