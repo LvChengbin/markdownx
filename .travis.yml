@@ -1,0 +1,15 @@
+sudo: false
+language: node_js
+node_js:
+    - 14
+    - 15
+    - 16
+cache:
+    directories:
+        - .yarn
+script:
+    - yarn lint:all
+    - yarn test:all --coverage
+after_script:
+    - yarn add codecov
+    - yarn codecov

@@ -9,7 +9,7 @@
 
 module.exports = {
     preset : 'ts-jest',
-    setupFilesAfterEnv : [ 'jest-extended' ],
+    setupFilesAfterEnv : [ 'jest-extended', '@testing-library/jest-dom' ],
     testMatch : [
         '**/test/**/*.spec.ts?(x)'
     ],
@@ -19,13 +19,14 @@ module.exports = {
         'lcov'
     ],
     collectCoverageFrom : [
-        '**/src/**/*.ts(x)',
+        '**/src/**/*.ts?(x)',
         '!**/*.d.ts'
     ],
     testEnvironment : 'node',
     globals : {
         'ts-jest' : {
-            isolatedModules : true
+            isolatedModules : true,
+            tsConfig : 'tsconfig.spec.js'
         }
     },
     transformIgnorePatterns : [
