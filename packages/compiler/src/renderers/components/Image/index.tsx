@@ -29,7 +29,7 @@ export interface ImageProps {
     align?: 'left' | 'right' | 'center';
 };
 
-const useStyles = makeStyles( ( { spacing }: Theme ) => {
+const useStyles = makeStyles( ( { spacing, palette }: Theme ) => {
     return createStyles( {
         root : {
             display : 'inline-block',
@@ -73,7 +73,8 @@ const useStyles = makeStyles( ( { spacing }: Theme ) => {
             right : 0,
             width : '100%',
             padding : spacing( 1 ),
-            backgroundColor : 'rgba( 255, 255, 255, .6 )',
+            backgroundColor : 'rgba( 0, 0, 0, .6 )',
+            color : palette.common.white,
             transform : 'translateY( 100% )',
             transition : 'all .3s ease',
             maxHeight : '5em',
@@ -129,7 +130,7 @@ export default function Image( props: ImageProps ): JSX.Element {
     return isReady ? (
         isTiny ? (
             <Tooltip title={title}>
-                <img
+                <img src={src}
                     className={clsx(
                         styles.root,
                         styles[ align ],
@@ -137,7 +138,6 @@ export default function Image( props: ImageProps ): JSX.Element {
                         floatLeft && styles[ 'float-left' ],
                         floatRight && styles[ 'float-right' ]
                     )}
-                    src={src}
                     alt={alt}
                     width={width}
                     height={height}
