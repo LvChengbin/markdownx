@@ -16,7 +16,7 @@ import A from './a.jpg';
 export default function ImageDemo(): JSX.Element {
 
     return (
-        <Box>
+        <Box component="div">
             <Typography component="div">
                 <p>Stray birds of summer come to my window to sing and fly away. And yellow leaves of autumn, which have no songs, flutter and fall there with a sigh.</p>
                 <p>O troupe of little vagrants of the world, leave your footprints in my words.</p>
@@ -31,6 +31,10 @@ export default function ImageDemo(): JSX.Element {
                 <Image src={A} title="Float to the left" width={300} floatLeft />
                 <p>Stray birds of summer come to my window to sing and fly away. And yellow leaves of autumn, which have no songs, flutter and fall there with a sigh.</p>
                 <p>O troupe of little vagrants of the world, leave your footprints in my words.</p>
+            </Typography>
+
+            <Typography component="div">
+                <p>Stray birds of summer come to my window to sing and fly away. <Image src={A} title="Float to the left" width={30} /> And yellow leaves of autumn, which have no songs, flutter and fall there with a sigh.</p>
             </Typography>
         </Box>
     );
