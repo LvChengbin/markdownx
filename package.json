@@ -13,7 +13,7 @@
     "devDependencies": {
         "@testing-library/jest-dom": "^5.13.0",
         "@types/jest": "^26.0.23",
-        "@types/node": "^15.12.1",
+        "@types/node": "^15.12.2",
         "@typescript-eslint/eslint-plugin": "^4.26.0",
         "@typescript-eslint/parser": "^4.26.0",
         "commitizen": "^4.2.3",
@@ -47,6 +47,14 @@
     "config": {
         "commitizen": {
             "path": "cz-conventional-changelog"
+        }
+    },
+    "dependenciesMeta": {
+        "@material-ui/core@5.0.0-alpha.36": {
+            "unplugged": true
+        },
+        "@material-ui/icons@5.0.0-alpha.36": {
+            "unplugged": true
         }
     }
 }

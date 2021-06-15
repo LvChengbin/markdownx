@@ -7,9 +7,9 @@
  * Description:
  ******************************************************************/
 
-import * as React from 'react';
+import React from 'react';
 import clsx from 'clsx';
-import { makeStyles, createStyles } from '@material-ui/core/styles';
+import { makeStyles, createStyles } from '@material-ui/styles';
 import { default as L } from '@material-ui/core/List';
 
 const useStyles = makeStyles( () => {
@@ -24,13 +24,11 @@ const useStyles = makeStyles( () => {
     } );
 } );
 
-export interface ListProps {
-    children: React.ReactNode;
+export type ListProps = React.PropsWithChildren<{
     ordered?: boolean;
-};
+}>;
 
-export default function List( props: ListProps ): JSX.Element {
-    const styles = useStyles( props );
-    const { children, ordered } = props;
+export default function List( { children, ordered }: ListProps ): JSX.Element {
+    const styles = useStyles();
     return ( <L className={clsx( styles.root, ordered && styles.ordered )}>{children}</L> );
 }

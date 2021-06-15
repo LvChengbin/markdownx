@@ -8,11 +8,16 @@
  ******************************************************************/
 
 import React from 'react';
+import Box from '@material-ui/core/Box';
 
 export interface ContainerProps {
-    children: React.ReactNode;
-};
+    children?: React.ReactNode;
+}
 
-export default function Container( props: ContainerProps ): JSX.Element {
-    return <div>{props.children}</div>;
+export default function Container( { children }: ContainerProps ): JSX.Element {
+    return (
+        <Box>
+            {children}
+        </Box>
+    );
 }

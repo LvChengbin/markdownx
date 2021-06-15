@@ -9,14 +9,17 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ThemeProvider } from '@material-ui/styles';
+import { ThemeProvider } from '@material-ui/core/styles';
+import StyledEngineProvider from '@material-ui/core/StyledEngineProvider';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from './theme';
 import Documentation from './Documentation';
 
 ReactDOM.render( (
     <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Documentation />
+        <StyledEngineProvider injectFirst>
+            <CssBaseline />
+            <Documentation />
+        </StyledEngineProvider>
     </ThemeProvider>
 ), document.getElementById( 'root' ) );

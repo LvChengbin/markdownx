@@ -9,7 +9,7 @@
 
 import React, { useRef } from 'react';
 import clsx from 'clsx';
-import { makeStyles, createStyles } from '@material-ui/core/styles';
+import { makeStyles, createStyles } from '@material-ui/styles';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
 
 export interface CopyProps {

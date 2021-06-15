@@ -11,6 +11,7 @@ import code from './renderers/code';
 import codespan from './renderers/codespan';
 import container from './renderers/container';
 import heading from './renderers/heading';
+import image from './renderers/image';
 import list from './renderers/list';
 import listitem from './renderers/listitem';
 import paragraph from './renderers/paragraph';
@@ -24,6 +25,7 @@ export default {
     codespan,
     container,
     heading,
+    image,
     list,
     listitem,
     paragraph,

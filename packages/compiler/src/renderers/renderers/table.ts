@@ -9,6 +9,7 @@
 
 import { Renderer } from '../../interfaces';
 import { transTags } from '../utils/trans';
+import decode from '../utils/decode-quotes';
 
 export default function table(): Renderer {
     return {
@@ -21,6 +22,13 @@ export default function table(): Renderer {
         ],
         exec( header: string, body: string ): string {
 
+            let props = '';
+
+            header = header.replace( /{{(.*?)}}/, ( m, n ): '' => {
+                props = n;
+                return '';
+            } );
+
             header = transTags( header, 'tr', 'TableRow' );
             header = transTags( header, 'th', 'TableCell' );
 
@@ -28,7 +36,7 @@ export default function table(): Renderer {
             body = transTags( body, 'td', 'TableCell' );
 
             return `
-                <Table>
+                <Table ${decode( props )}>
                     <TableHead>${header}</TableHead>
                     <TableBody>${body}</TableBody>
                 </Table>

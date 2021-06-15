@@ -7,16 +7,15 @@
  * Description:
  ******************************************************************/
 
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createTheme } from '@material-ui/core/styles';
 import teal from '@material-ui/core/colors/teal';
 
-export default createMuiTheme( {
+export default createTheme( {
     palette : {
         common : {
             black : '#000',
             white : '#FFF'
         },
-        type : 'light',
         primary : teal,
         secondary : {
             main : '#FFF'
@@ -24,12 +23,11 @@ export default createMuiTheme( {
         text : {
             primary : 'rgba( 51, 51, 51, .87 )',
             secondary : 'rgba( 51, 51, 51, .54 )',
-            disabled : 'rgba( 51, 51, 51, .38 )',
-            hint : 'rgba( 51, 51, 51, .38 )'
+            disabled : 'rgba( 51, 51, 51, .38 )'
         },
         action : {
             hoverOpacity : 0.2,
-            selectedOpacity : 0.8,
+            selectedOpacity : 0.08,
             disabledOpacity : 0.9,
             disabledBackground : '#CCC',
             focus : '#888',
@@ -72,31 +70,6 @@ export default createMuiTheme( {
             fontSize : '1rem',
             fontWeight : 400,
             lineHeight : 2.6
-        }
-    },
-    overrides : {
-        MuiSelect : {
-            select : {
-                cursor : 'pointer',
-                '&:focus' : {
-                    backgroundColor : 'none'
-                }
-            }
-        },
-        MuiButton : {
-            root : {
-                textTransform : 'none',
-                boxShadow : 'none',
-                '&:hover' : {
-                    boxShadow : 'none'
-                }
-            },
-            contained : {
-                boxShadow : 'none',
-                '&:hover' : {
-                    boxShadow : 'none'
-                }
-            }
         }
     }
 } );

@@ -9,7 +9,8 @@
 
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { Theme } from '@material-ui/core/styles';
+import { makeStyles, createStyles } from '@material-ui/styles';
 import { Prism } from 'react-syntax-highlighter';
 import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import Copy from '../Copy';
@@ -76,9 +77,8 @@ const useStyles = makeStyles( ( { spacing, palette, shape, breakpoints }: Theme 
     } );
 } );
 
-export default function Code( props: CodeProps ): JSX.Element {
-    const styles = useStyles( props );
-    const { lang, code, component } = props;
+export default function Code( { lang, code, component }: CodeProps ): JSX.Element {
+    const styles = useStyles();
 
     return (
         <div className={clsx( styles.root, component && styles.block )}>

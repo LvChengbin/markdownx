@@ -58,13 +58,8 @@ export default ( options: CompileOptions ): ( source: string ) => string => {
                 const { imports, token : parsedToken } = parsed;
 
                 if( parsedToken.invocation ) {
-
                     imports.forEach( x => {
-                        const q = {
-                            ...query,
-                            pickType : token.type,
-                            pickId : id
-                        };
+                        const q = { ...query, pickType : token.type, pickId : id };
                         const request = `${options.path}?${qs.stringify( q )}`;
                         globalImports.push( `import ${x} from "${request}";` );
                     } );
@@ -81,6 +76,17 @@ export default ( options: CompileOptions ): ( source: string ) => string => {
 
                     token.lang += ` {{{${parsedToken.invocation}}}}`;
                 }
+            } else if( token.type === 'image' ) {
+                const id = increment();
+                const moduleId = `MDX_IMAGE_MODULE_${id}`;
+                const { href } = token;
+                const query = href.split( '?' )[ 1 ] ?? '';
+                /**
+                 * Skip the src if it is able to be treated as a valid URL.
+                 */
+                if( !href || href.startsWith( '/' ) || href.startsWith( '://' ) || /^https?:\/\//i.test( href ) ) return;
+                globalImports.push( `import ${moduleId} from "${token.href}";` );
+                token.href = `${moduleId}?${query}`;
             }
         },
         renderer : rendererMethods.reduce( ( acc, cur ) => {
