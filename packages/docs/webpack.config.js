@@ -19,6 +19,11 @@ module.exports = {
     },
     module : {
         rules : [ {
+            test : /\.m?js/,
+            resolve : {
+                fullySpecified : false
+            }
+        }, {
             test : /\.mdx?$/,
             use : [ {
                 loader : 'ts-loader',
@@ -37,6 +42,9 @@ module.exports = {
                     appendTsxSuffixTo : [ /\.mdx?$/ ]
                 }
             } ]
+        }, {
+            test : /\.(jpe?g|png|gif|svg|webp)$/i,
+            loader : 'file-loader'
         } ]
     },
     plugins : [

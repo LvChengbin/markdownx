@@ -9,7 +9,8 @@
 
 
 import React from 'react';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { Theme } from '@material-ui/core/styles';
+import { makeStyles, createStyles } from '@material-ui/styles';
 
 export interface CodespanProps {
     code?: string;

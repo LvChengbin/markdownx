@@ -1,0 +1,6 @@
+name: NPM publish CD workflow
+
+on:
+    release:
+        types: [published]
+

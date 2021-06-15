@@ -7,29 +7,30 @@
  * Description:
  ******************************************************************/
 
-import * as React from 'react';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import React from 'react';
+// import { Theme } from '@material-ui/core/styles';
+import { makeStyles, createStyles } from '@material-ui/styles';
 import { default as T } from '@material-ui/core/TableRow';
 
-const useStyles = makeStyles( ( { palette }: Theme ) => {
+const useStyles = makeStyles( () => {
     return createStyles( {
         root : {
             '&:nth-of-type(odd)' : {
-                backgroundColor : palette.action.hover
+                // backgroundColor : palette.action.hover
             }
         }
     } );
 } );
 
 export interface TableRowProps {
-    children: React.ReactNode;
-}
+    children?: React.ReactNode;
+};
 
-export default function TableRow( props: TableRowProps ): JSX.Element {
+export default function TableRow( { children }: TableRowProps ): JSX.Element {
     const styles = useStyles();
     return (
         <T className={styles.root}>
-            { props.children }
+            {children}
         </T>
     );
 }

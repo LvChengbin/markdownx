@@ -8,7 +8,8 @@
  ******************************************************************/
 
 import React from 'react';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { Theme } from '@material-ui/core/styles';
+import { makeStyles, createStyles } from '@material-ui/styles';
 import IndexMDX from '../markdown';
 
 const useStyles = makeStyles( ( { spacing }: Theme ) => {

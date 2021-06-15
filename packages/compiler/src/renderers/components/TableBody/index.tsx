@@ -7,17 +7,13 @@
  * Description:
  ******************************************************************/
 
-import * as React from 'react';
+import React from 'react';
 import { default as T } from '@material-ui/core/TableBody';
 
 export interface TableBodyProps {
-    children: React.ReactNode;
+    children?: React.ReactNode;
 }
 
-export default function TableBody( props: TableBodyProps ): JSX.Element {
-    return (
-        <T>
-            {props.children}
-        </T>
-    );
+export default function TableBody( { children }: TableBodyProps ): JSX.Element {
+    return <T>{children}</T>;
 }

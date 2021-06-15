@@ -13,6 +13,31 @@
 ##### h5. Heading
 ###### h6. Heading
 
+![Jolin Isai](./a.jpg?align=center&inline=false)
+
+![Buautiful picture loaded from remote link](https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fb86135d4806bc8ff4fcd0ea094bc7978d98cc62521a40-1w2npy_fw236&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1626333767&t=148562f3bbd66328adfe7a46ed58bad0)
+
+![Jolin Isai](./a.jpg?floatLeft=true&width=130)
+Stray birds of summer come to my window to sing and fly away. And yellow leaves of autumn, which have no songs, flutter and fall there with a sigh. <br />
+O troupe of little vagrants of the world, leave your footprints in my words. <br />
+The world puts off its mask of vastness to its lover. It becomes small as one song, as one kiss of the eternal. <br />
+It is the tears of the earth that keep her smiles in bloom. <br />
+The mighty desert is burning for the love of a blade of grass who shakes her head and laughs and flies away. <br />
+If you shed tears when you miss the sun, you also miss the stars. <br />
+The sands in your way beg for your song and your movement, dancing water. Will you carry the burden of their lameness?
+
+
+Stray birds of summer come to my window to sing and fly away. And yellow leaves of autumn, which have no songs, flutter and fall there with a sigh. <br />
+![Jolin Isai](./a.jpg?floatLeft=true&width=130)
+O troupe of little vagrants of the world, leave your footprints in my words. <br />
+The world puts off its mask of vastness to its lover. It becomes small as one song, as one kiss of the eternal. <br />
+It is the tears of the earth that keep her smiles in bloom. <br />
+The mighty desert is burning for the love of a blade of grass who shakes her head and laughs and flies away. <br />
+If you shed tears when you miss the sun, you also miss the stars. <br />
+The sands in your way beg for your song and your movement, dancing water. Will you carry the burden of their lameness?
+
+Stray birds ![Jolin Isai](./a.jpg?width=30) of summer come to my window to sing and fly away. And yellow leaves of autumn, which have no songs, flutter and fall there with a sigh. <br />
+
 Here is some text content;
 
 - Unordered list item 1

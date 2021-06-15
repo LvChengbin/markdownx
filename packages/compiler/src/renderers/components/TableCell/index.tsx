@@ -7,28 +7,28 @@
  * Description:
  ******************************************************************/
 
-import * as React from 'react';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import React from 'react';
+// import { Theme } from '@material-ui/core/styles';
+import { makeStyles, createStyles } from '@material-ui/styles';
 import { default as T } from '@material-ui/core/TableCell';
 
-const useStyles = makeStyles( ( { palette }: Theme ) => {
+const useStyles = makeStyles( () => {
     return createStyles( {
         root : {
-            border : `solid 1px ${palette.grey[ 300 ]}`
+            // border : `solid 1px ${palette.grey[ 300 ]}`
         }
     } );
 } );
 
-export interface TableCellProps {
-    children: React.ReactNode;
+export type TableCellProps = React.PropsWithChildren<{
     align?: 'left' | 'right' | 'center';
-}
+}>;
 
-export default function TableCell( props: TableCellProps ): JSX.Element {
+export default function TableCell( { children }: TableCellProps ): JSX.Element {
     const styles = useStyles();
     return (
         <T className={styles.root}>
-            { props.children }
+            { children }
         </T>
     );
 }

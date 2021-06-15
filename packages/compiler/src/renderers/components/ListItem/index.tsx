@@ -7,8 +7,8 @@
  * Description:
  ******************************************************************/
 
-import * as React from 'react';
-import { makeStyles, createStyles } from '@material-ui/core/styles';
+import React from 'react';
+import { makeStyles, createStyles } from '@material-ui/styles';
 import { default as L } from '@material-ui/core/ListItem';
 
 const useStyles = makeStyles( () => {
@@ -20,11 +20,10 @@ const useStyles = makeStyles( () => {
 } );
 
 export interface ListItemProps {
-    children: React.ReactNode;
-};
+    children?: React.ReactNode;
+}
 
-export default function List( props: ListItemProps ): JSX.Element {
-    const styles = useStyles( props );
-    const { children } = props;
+export default function List( { children }: ListItemProps ): JSX.Element {
+    const styles = useStyles();
     return ( <L className={styles.root}>{children}</L> );
 }

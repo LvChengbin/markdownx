@@ -9,7 +9,8 @@
 
 import React, { useState } from 'react';
 import clsx from 'clsx';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { Theme } from '@material-ui/core/styles';
+import { makeStyles, createStyles } from '@material-ui/styles';
 import Link from '@material-ui/core/Link';
 import CloseIcon from '@material-ui/icons/Close';
 import TocIcon from '@material-ui/icons/Toc';

@@ -7,9 +7,10 @@
  * Description:
  ******************************************************************/
 
-import * as React from 'react';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import { default as T } from '@material-ui/core/Table';
+import React from 'react';
+import { Theme } from '@material-ui/core/styles';
+import { makeStyles, createStyles } from '@material-ui/styles';
+import { default as T, TableProps as TableBaseProps } from '@material-ui/core/Table';
 
 const useStyles = makeStyles( ( { spacing }: Theme ) => {
     return createStyles( {
@@ -19,16 +20,14 @@ const useStyles = makeStyles( ( { spacing }: Theme ) => {
     } );
 } );
 
-export interface TableProps {
-    children: React.ReactNode;
-}
+export type TableProps = TableBaseProps;
 
-export default function Table( props: TableProps ): JSX.Element {
+export default function Table( { children, ...x }: TableProps ): JSX.Element {
     const styles = useStyles();
 
     return (
-        <T className={styles.root}>
-            {props.children}
+        <T className={styles.root} {...x}>
+            {children}
         </T>
     );
 }

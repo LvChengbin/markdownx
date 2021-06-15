@@ -8,11 +8,16 @@
  ******************************************************************/
 
 import React from 'react';
+import Box from '@material-ui/core/Box';
 
-export type RootProps = {
-    children: React.ReactNode;
-};
+export interface RootProps {
+    children?: React.ReactNode;
+}
 
-export default function Root( props: RootProps ): JSX.Element {
-    return <div>{props.children}</div>;
+export default function Root( { children }: RootProps ): JSX.Element {
+    return (
+        <Box>
+            {children}
+        </Box>
+    );
 }
