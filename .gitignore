@@ -4,7 +4,8 @@
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -43,6 +44,6 @@ coverage
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-
+.vscode1
 # typescrip9t output
 lib
