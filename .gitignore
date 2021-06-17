@@ -44,6 +44,6 @@ coverage
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-.vscode1
+.vscode
 # typescrip9t output
 lib
