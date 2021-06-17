@@ -11,7 +11,7 @@ import React from 'react';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Image from '../../src/renderers/components/Image';
-import Imageview from '../../src/renderers/components/Imageview';
+import ImageView from '../../src/renderers/components/ImageView';
 import A from './a.jpg';
 
 export default function ImageDemo(): JSX.Element {
@@ -29,9 +29,9 @@ export default function ImageDemo(): JSX.Element {
             </Typography>
 
             <Typography component="div">
-                <Imageview>
+                <ImageView>
                     <Image src={A} title="Float to the left" width={300} floatLeft />
-                </Imageview>
+                </ImageView>
                 <p>Stray birds of summer come to my window to sing and fly away. And yellow leaves of autumn, which have no songs, flutter and fall there with a sigh.</p>
                 <p>O troupe of little vagrants of the world, leave your footprints in my words.</p>
             </Typography>
@@ -42,9 +42,9 @@ export default function ImageDemo(): JSX.Element {
 
             <Typography component="div">
                 <p>preview the image
-                    <Imageview>
+                    <ImageView>
                         <Image src={A} title="Float to the left" width={30} />
-                    </Imageview>
+                    </ImageView>
                 </p>
             </Typography>
         </Box>
