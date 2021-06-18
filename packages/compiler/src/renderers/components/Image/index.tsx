@@ -87,7 +87,7 @@ const useStyles = makeStyles( ( { spacing, palette }: Theme ) => {
     } );
 } );
 
-const Image =  React.forwardRef( function Image( props: ImageProps, ref?: React.Ref<Element> ) {
+const Image =  React.forwardRef( function Image( props: ImageProps, ref?: React.LegacyRef<HTMLImageElement> ) {
     const styles = useStyles();
     const {
         src, alt, title, className,
