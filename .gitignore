@@ -46,3 +46,4 @@ coverage
 .vscode
 # typescrip9t output
 lib
+dist
