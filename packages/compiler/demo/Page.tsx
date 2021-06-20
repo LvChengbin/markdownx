@@ -72,7 +72,7 @@ interface NavItem {
     content?: keyof typeof components;
 };
 
-interface MarkedNavItemProps {
+/* interface MarkedNavItemProps {
     text: string;
 }
 
@@ -83,7 +83,7 @@ function MarkedNavItem( props: MarkedNavItemProps ): JSX.Element {
             }<StarRateIcon style={{ transform : 'scale(.75)' }} /> {props.text}
         </>
     );
-}
+}*/
 
 const list: NavItem[] = [
     { text : 'Image' }

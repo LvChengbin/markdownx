@@ -87,7 +87,7 @@ const useStyles = makeStyles( ( { spacing, palette }: Theme ) => {
     } );
 } );
 
-const Image =  React.forwardRef( function Image( props: ImageProps, ref?: React.LegacyRef<HTMLImageElement> ) {
+const Image = React.forwardRef( function Image( props: ImageProps, ref?: React.LegacyRef<HTMLImageElement> ) {
     const styles = useStyles();
     const {
         src, alt, title, className,
@@ -143,7 +143,7 @@ const Image =  React.forwardRef( function Image( props: ImageProps, ref?: React.
                     alt={alt}
                     width={width}
                     height={height}
-                    { ...rest }
+                    {...rest}
                 />
             </Tooltip>
         ) : (
@@ -158,7 +158,7 @@ const Image =  React.forwardRef( function Image( props: ImageProps, ref?: React.
                 )}
             >
                 <Box component="span" className={styles.box}>
-                    <img { ...rest } ref={ref} className={styles.image} src={src} title={title} alt={alt} width={width} height={height} />
+                    <img {...rest} ref={ref} className={styles.image} src={src} title={title} alt={alt} width={width} height={height} />
                     <Typography component="span" variant="body2" className={styles.note}>{title}</Typography>
                 </Box>
             </Box>
@@ -168,6 +168,6 @@ const Image =  React.forwardRef( function Image( props: ImageProps, ref?: React.
             <CircularProgress size={30} />
         </Box>
     );
-} )
+} );
 
 export default Image;
