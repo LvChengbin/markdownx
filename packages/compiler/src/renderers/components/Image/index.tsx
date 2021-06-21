@@ -19,7 +19,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 export interface ImageProps {
     className?: string;
     src: string;
-    alt: string;
+    alt?: string;
     title: string;
     width?: number | string;
     height?: number | string;
@@ -87,7 +87,7 @@ const useStyles = makeStyles( ( { spacing, palette }: Theme ) => {
     } );
 } );
 
-export default function Image( props: ImageProps ): JSX.Element {
+const Image = React.forwardRef( function Image( props: ImageProps, ref?: React.LegacyRef<HTMLImageElement> ) {
     const styles = useStyles();
     const {
         src, alt, title, className,
@@ -96,7 +96,8 @@ export default function Image( props: ImageProps ): JSX.Element {
         align = 'left',
         inline = true,
         floatLeft = false,
-        floatRight = false
+        floatRight = false,
+        ...rest
     } = props;
 
     const [ isReady, setIsReady ] = useState( false );
@@ -131,6 +132,7 @@ export default function Image( props: ImageProps ): JSX.Element {
         isTiny ? (
             <Tooltip title={title}>
                 <img src={src}
+                    ref={ref}
                     className={clsx(
                         styles.root,
                         styles[ align ],
@@ -141,6 +143,7 @@ export default function Image( props: ImageProps ): JSX.Element {
                     alt={alt}
                     width={width}
                     height={height}
+                    {...rest}
                 />
             </Tooltip>
         ) : (
@@ -155,7 +158,7 @@ export default function Image( props: ImageProps ): JSX.Element {
                 )}
             >
                 <Box component="span" className={styles.box}>
-                    <img className={styles.image} src={src} title={title} alt={alt} width={width} height={height} />
+                    <img {...rest} ref={ref} className={styles.image} src={src} title={title} alt={alt} width={width} height={height} />
                     <Typography component="span" variant="body2" className={styles.note}>{title}</Typography>
                 </Box>
             </Box>
@@ -165,4 +168,6 @@ export default function Image( props: ImageProps ): JSX.Element {
             <CircularProgress size={30} />
         </Box>
     );
-}
+} );
+
+export default Image;

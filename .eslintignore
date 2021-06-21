@@ -1,2 +1,3 @@
-packages/nextseason/react-ui/src/HTMLEditor
+packages/compiler/lib
+packages/loader/lib
 dist
