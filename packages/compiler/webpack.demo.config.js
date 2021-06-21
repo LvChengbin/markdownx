@@ -36,7 +36,8 @@ module.exports = ( env, argv ) => {
                     loader : 'ts-loader',
                     options : {
                         transpileOnly : !isProductionMode,
-                        experimentalWatchApi : !isProductionMode
+                        experimentalWatchApi : !isProductionMode,
+                        configFile : 'tsconfig.demo.json',
                     }
                 } ]
             }, {
