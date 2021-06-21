@@ -26,7 +26,8 @@ export default function image(): Renderer {
                 align = 'left',
                 floatLeft = 'false',
                 floatRight = 'false',
-                inline = 'true'
+                inline = 'true',
+                zoomable = 'true'
             } = querystring.parse( query );
 
             return `
@@ -40,6 +41,7 @@ export default function image(): Renderer {
                     floatLeft={${floatLeft}}
                     floatRight={${floatRight}}
                     inline={${inline}}
+                    zoomable={${zoomable}}
                 />
             `;
         }

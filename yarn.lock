@@ -1147,9 +1147,9 @@ __metadata:
     "@testing-library/jest-dom": ^5.13.0
     "@types/jest": ^26.0.23
     "@types/marked": ^2.0.3
-    "@types/node": ^15.12.2
+    "@types/node": ^15.12.4
     "@types/react": ^17.0.11
-    "@types/react-dom": ^17.0.7
+    "@types/react-dom": ^17.0.8
     "@typescript-eslint/eslint-plugin": ^4.26.0
     "@typescript-eslint/parser": ^4.26.0
     clsx: ^1.1.1
@@ -1188,7 +1188,7 @@ __metadata:
   dependencies:
     "@markdownx/compiler": "workspace:packages/compiler"
     "@testing-library/jest-dom": ^5.13.0
-    "@types/node": ^15.12.2
+    "@types/node": ^15.12.4
     "@typescript-eslint/eslint-plugin": ^4.26.0
     "@typescript-eslint/parser": ^4.26.0
     "@ynn/eslint-plugin": ^0.0.5
@@ -1671,10 +1671,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^15.12.2":
-  version: 15.12.2
-  resolution: "@types/node@npm:15.12.2"
-  checksum: 0dff080f306e4d5cd968bd43315238a227b1f54f4bb59fa9cee976535678f00755834c0288315029ae12f78b3db43efb5bfb700cf8aae882f184eb700229f974
+"@types/node@npm:^15.12.4":
+  version: 15.12.4
+  resolution: "@types/node@npm:15.12.4"
+  checksum: 1731c610eb87d2051d32d0f64f2b14b4e75443ab40ab4882e50fdaa4e5e1013240a6d249213bec1f83b2c3ba24f6d5233159a4deac0bb51751809f5cb6082735
   languageName: node
   linkType: hard
 
@@ -1699,12 +1699,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^17.0.7":
-  version: 17.0.7
-  resolution: "@types/react-dom@npm:17.0.7"
+"@types/react-dom@npm:^17.0.8":
+  version: 17.0.8
+  resolution: "@types/react-dom@npm:17.0.8"
   dependencies:
     "@types/react": "*"
-  checksum: 9b2eb0d86dd00bff5e4a9a4d1892f6ef3dd79434acb5d38a45a8bda8a383cff0a3d7bb58d662c2a5352ab7c92145d5736f56f1bd12e1e3a482727c274bf09434
+  checksum: 9ad1220297bede365e0d2aae4bc4a2deee3247da9da62d45bcd770812d246d46c219b3f58755b08423a4339c3c654fddd6c2b16b27151d09213b527a7cde8910
   languageName: node
   linkType: hard
 
@@ -4025,7 +4025,7 @@ __metadata:
     "@material-ui/icons": next
     "@material-ui/styles": next
     "@types/react": ^17.0.11
-    "@types/react-dom": ^17.0.7
+    "@types/react-dom": ^17.0.8
     "@typescript-eslint/eslint-plugin": ^4.26.0
     "@typescript-eslint/parser": ^4.26.0
     "@ynn/eslint-plugin": ^0.0.5
@@ -7547,7 +7547,7 @@ fsevents@^2.3.2:
   dependencies:
     "@testing-library/jest-dom": ^5.13.0
     "@types/jest": ^26.0.23
-    "@types/node": ^15.12.2
+    "@types/node": ^15.12.4
     "@typescript-eslint/eslint-plugin": ^4.26.0
     "@typescript-eslint/parser": ^4.26.0
     commitizen: ^4.2.3

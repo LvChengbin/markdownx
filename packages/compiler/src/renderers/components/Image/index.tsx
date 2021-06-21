@@ -15,6 +15,8 @@ import Box from '@material-ui/core/Box';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Typography from '@material-ui/core/Typography';
 import Tooltip from '@material-ui/core/Tooltip';
+import Modal from '@material-ui/core/Modal';
+import Fade from '@material-ui/core/Fade';
 
 export interface ImageProps {
     className?: string;
@@ -27,13 +29,19 @@ export interface ImageProps {
     floatLeft?: boolean;
     floatRight?: boolean;
     align?: 'left' | 'right' | 'center';
+    zoomable?: boolean;
 };
+
+interface ImageStyleProps {
+    zoomable: boolean;
+}
 
 const useStyles = makeStyles( ( { spacing, palette }: Theme ) => {
     return createStyles( {
         root : {
             display : 'inline-block',
-            margin : `0 ${spacing( 1 )}`
+            margin : `0 ${spacing( 1 )}`,
+            cursor : ( { zoomable }: ImageStyleProps ) => zoomable ? 'zoom-in' : 'inherit'
         },
         block : {
             display : 'block'
@@ -64,7 +72,8 @@ const useStyles = makeStyles( ( { spacing, palette }: Theme ) => {
             }
         },
         image : {
-            display : 'block'
+            display : 'block',
+            cursor : ( { zoomable }: ImageStyleProps ) => zoomable ? 'zoom-in' : 'inherit'
         },
         note : {
             position : 'absolute',
@@ -83,12 +92,25 @@ const useStyles = makeStyles( ( { spacing, palette }: Theme ) => {
         loading : {
             margin : spacing( 1 ),
             display : 'block'
+        },
+        'view-layer' : {
+            position : 'absolute',
+            top : 0,
+            left : 0,
+            right : 0,
+            bottom : 0,
+            border : 0,
+            overflow : 'auto'
+        },
+        'view-layer-img' : {
+            transition : 'all 0.5s ease-in-out',
+            cursor : 'zoom-out'
         }
     } );
 } );
 
-const Image = React.forwardRef( function Image( props: ImageProps, ref?: React.LegacyRef<HTMLImageElement> ) {
-    const styles = useStyles();
+export default function Image( props: ImageProps ): JSX.Element {
+
     const {
         src, alt, title, className,
         width = 'auto',
@@ -97,11 +119,49 @@ const Image = React.forwardRef( function Image( props: ImageProps, ref?: React.L
         inline = true,
         floatLeft = false,
         floatRight = false,
+        zoomable = true,
         ...rest
     } = props;
 
+    const styles = useStyles( { zoomable } );
+
     const [ isReady, setIsReady ] = useState( false );
     const [ isTiny, setIsTiny ] = useState( false );
+    const [ openImageViewLayer, setOpenImageViewLayer ] = useState( false );
+    const [ imageViewImageStyle, setImageViewImageStyle ] = useState<React.CSSProperties>();
+    const ref = React.createRef<HTMLImageElement>();
+
+    const initialImageViewLayer = (): void => {
+        if( !ref.current ) return;
+        const { left, top } = ref.current.getBoundingClientRect();
+        const { width } = ref.current;
+
+        setImageViewImageStyle( {
+            width,
+            transform : `translate( ${left}px, ${top}px )`
+        } );
+    };
+
+    const fixImageViewLayer = (): void => {
+        if( !ref.current || !openImageViewLayer ) return;
+        const { naturalWidth, naturalHeight } = ref.current;
+        const { innerWidth, innerHeight } = window;
+
+        setImageViewImageStyle( {
+            width : naturalWidth,
+            transform : `translate(${( innerWidth - naturalWidth ) / 2}px, ${ ( innerHeight - naturalHeight ) / 2 }px )`
+        } );
+    };
+
+    const handleOpenImageViewLayer = (): void => {
+        initialImageViewLayer();
+        setOpenImageViewLayer( true );
+    };
+
+    const handleCloseImageViewLayer = (): void => {
+        setOpenImageViewLayer( false );
+    };
+
 
     useEffect( () => {
         const img = new window.Image();
@@ -126,48 +186,80 @@ const Image = React.forwardRef( function Image( props: ImageProps, ref?: React.L
             setIsReady( true );
         };
         img.src = src;
+
+        /**
+         * Reposition the image in popup
+         */
+        const onresize = (): void => {
+            fixImageViewLayer();
+        };
+
+        window.addEventListener( 'resize', onresize, { passive : true } );
+
+        return (): void => {
+            /**
+             * remove the resize listener
+             */
+            window.removeEventListener( 'resize', onresize );
+        };
     } );
 
-    return isReady ? (
-        isTiny ? (
-            <Tooltip title={title}>
-                <img src={src}
-                    ref={ref}
-                    className={clsx(
-                        styles.root,
-                        styles[ align ],
-                        inline || styles.block,
-                        floatLeft && styles[ 'float-left' ],
-                        floatRight && styles[ 'float-right' ]
-                    )}
-                    alt={alt}
-                    width={width}
-                    height={height}
-                    {...rest}
-                />
-            </Tooltip>
-        ) : (
-            <Box component="span"
-                className={clsx(
-                    className,
-                    styles.root,
-                    styles[ align ],
-                    inline || styles.block,
-                    floatLeft && styles[ 'float-left' ],
-                    floatRight && styles[ 'float-right' ]
-                )}
-            >
-                <Box component="span" className={styles.box}>
-                    <img {...rest} ref={ref} className={styles.image} src={src} title={title} alt={alt} width={width} height={height} />
-                    <Typography component="span" variant="body2" className={styles.note}>{title}</Typography>
+    return (
+        <>
+            { isReady ? (
+                isTiny ? (
+                    <Tooltip title={title}>
+                        <img src={src}
+                            className={clsx(
+                                styles.root,
+                                styles[ align ],
+                                inline || styles.block,
+                                floatLeft && styles[ 'float-left' ],
+                                floatRight && styles[ 'float-right' ]
+                            )}
+                            ref={ref}
+                            alt={alt}
+                            width={width}
+                            height={height}
+                            onClick={handleOpenImageViewLayer}
+                            {...rest}
+                        />
+                    </Tooltip>
+                ) : (
+                    <Box component="span"
+                        className={clsx(
+                            className,
+                            styles.root,
+                            styles[ align ],
+                            inline || styles.block,
+                            floatLeft && styles[ 'float-left' ],
+                            floatRight && styles[ 'float-right' ]
+                        )}
+                    >
+                        <Box component="span" className={styles.box}>
+                            <img {...rest} ref={ref} className={styles.image} src={src} title={title} alt={alt} width={width} height={height} onClick={handleOpenImageViewLayer} />
+                            <Typography component="span" variant="body2" className={styles.note}>{title}</Typography>
+                        </Box>
+                    </Box>
+                )
+            ) : (
+                <Box component="span" className={styles.loading}>
+                    <CircularProgress size={30} />
                 </Box>
-            </Box>
-        )
-    ) : (
-        <Box component="span" className={styles.loading}>
-            <CircularProgress size={30} />
-        </Box>
+            ) }
+            { zoomable && (
+                <Modal open={openImageViewLayer} onClose={handleCloseImageViewLayer}>
+                    <Fade timeout={{ exit : 800, enter : 100 }}
+                        in={openImageViewLayer}
+                        onEntered={fixImageViewLayer}
+                        onExiting={initialImageViewLayer}
+                    >
+                        <div className={styles[ 'view-layer' ]} onClick={handleCloseImageViewLayer}>
+                            <img className={styles[ 'view-layer-img' ]} style={imageViewImageStyle} src={src} />
+                        </div>
+                    </Fade>
+                </Modal>
+            ) }
+        </>
     );
-} );
-
-export default Image;
+}
