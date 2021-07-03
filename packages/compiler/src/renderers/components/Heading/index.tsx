@@ -26,10 +26,10 @@ const useStyles = makeStyles( ( { spacing, palette }: Theme ) => {
     return createStyles( {
         root : {},
         heading : {
-            backgroundImage : `linear-gradient( 90deg, ${palette.primary.light}, ${palette.primary.light} )`,
-            backgroundSize : '1em calc( 1em / 4 )',
-            backgroundRepeat : 'no-repeat',
-            backgroundPosition : '0 100%',
+            // backgroundImage : `linear-gradient( 90deg, ${palette.primary.light}, ${palette.primary.light} )`,
+            // backgroundSize : '1em calc( 1em / 4 )',
+            // backgroundRepeat : 'no-repeat',
+            // backgroundPosition : '0 100%',
             '&:hover $anchor' : {
                 opacity : 1
             },
@@ -71,7 +71,7 @@ const useStyles = makeStyles( ( { spacing, palette }: Theme ) => {
 
 export default function Heading( props: HeadingProps ): JSX.Element {
     const styles = useStyles( props );
-    const { level, text, anchor } = props;
+    const { level = '1', text, anchor } = props;
 
     const url = new URL( window.location.href );
     url.hash = anchor;
@@ -87,7 +87,3 @@ export default function Heading( props: HeadingProps ): JSX.Element {
         </div>
     );
 }
-
-Heading.defaultProps = {
-    level : '1'
-};
