@@ -26,6 +26,10 @@ const useStyles = makeStyles( ( { spacing, palette }: Theme ) => {
     return createStyles( {
         root : {},
         heading : {
+            backgroundImage : `linear-gradient( 90deg, ${palette.primary.light}, ${palette.primary.light} )`,
+            backgroundSize : '1em calc( 1em / 4 )',
+            backgroundRepeat : 'no-repeat',
+            backgroundPosition : '0 100%',
             '&:hover $anchor' : {
                 opacity : 1
             },
