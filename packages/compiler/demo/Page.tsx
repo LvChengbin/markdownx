@@ -16,9 +16,11 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import StarRateIcon from '@material-ui/icons/StarRate';
 import Image from './Image';
+import Blockquote from './Blockquote';
 
 const components = {
-    Image
+    Image,
+    Blockquote
 };
 
 const useStyles = makeStyles( ( { palette, spacing }: Theme ) => {
@@ -86,7 +88,8 @@ function MarkedNavItem( props: MarkedNavItemProps ): JSX.Element {
 }*/
 
 const list: NavItem[] = [
-    { text : 'Image' }
+    { text : 'Image' },
+    { text : 'Blockquote' }
 ];
 
 const to = ( item: NavItem ): string => {

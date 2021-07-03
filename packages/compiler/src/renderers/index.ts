@@ -7,6 +7,7 @@
  * Description:
  ******************************************************************/
 
+import blockquote from './renderers/blockquote';
 import code from './renderers/code';
 import codespan from './renderers/codespan';
 import container from './renderers/container';
@@ -21,6 +22,7 @@ import table from './renderers/table';
 import toc from './renderers/toc';
 
 export default {
+    blockquote,
     code,
     codespan,
     container,
