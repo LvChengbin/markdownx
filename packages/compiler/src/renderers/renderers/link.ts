@@ -8,6 +8,7 @@
  ******************************************************************/
 
 import { Renderer } from '../../interfaces';
+import jointAttrs from '../utils/joint-attrs';
 
 export default function link(): Renderer {
     return {
@@ -15,8 +16,11 @@ export default function link(): Renderer {
             [ 'Link', '@@component/Link' ]
         ],
         exec( href: string, title: string, text: string ): string {
+
+            const attrs = jointAttrs( { title, text } );
+
             return `
-                <Link href="${href}" title="${title}" text="${text}"  />
+                <Link href="${href}" ${attrs} />
             `;
         }
     };
