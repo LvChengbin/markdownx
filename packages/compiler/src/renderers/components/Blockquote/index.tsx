@@ -17,7 +17,7 @@ const useStyles = makeStyles( ( { spacing, palette }: Theme ) => {
         root : {
             margin : 0,
             paddingLeft : spacing( 2 ),
-            borderLeft : `solid 3px ${palette.grey[ 300 ]}`,
+            borderLeft : `solid 4px ${palette.grey[ 300 ]}`,
             '&:hover' : {
                 background : palette.grey[ 100 ]
             }
