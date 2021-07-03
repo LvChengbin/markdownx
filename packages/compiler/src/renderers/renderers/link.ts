@@ -1,25 +1,22 @@
 /******************************************************************
  * Copyright (C) 2021 LvChengbin
  *
- * File: renderers/blockquote.ts
+ * File: renderers/link.ts
  * Author: LvChengbin<lvchengbin59@gmail.com>
  * Time: 07/03/2021
  * Description:
  ******************************************************************/
 
 import { Renderer } from '../../interfaces';
-import escapeTemplateLiterals from '../utils/escape-template-literals';
 
-export default function blockquote(): Renderer {
+export default function link(): Renderer {
     return {
         imports : [
-            [ 'Blockquote', '@@component/Blockquote' ]
+            [ 'Link', '@@component/Link' ]
         ],
-        exec( quote: string ): string {
+        exec( href: string, title: string, text: string ): string {
             return `
-                <Blockquote>
-                    ${quote}
-                </Blockquote>
+                <Link href="${href}" title="${title}" text="${text}"  />
             `;
         }
     };
