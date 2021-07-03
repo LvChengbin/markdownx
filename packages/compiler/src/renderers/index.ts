@@ -13,6 +13,7 @@ import codespan from './renderers/codespan';
 import container from './renderers/container';
 import heading from './renderers/heading';
 import image from './renderers/image';
+import link from './renderers/link';
 import list from './renderers/list';
 import listitem from './renderers/listitem';
 import paragraph from './renderers/paragraph';
@@ -28,6 +29,7 @@ export default {
     container,
     heading,
     image,
+    link,
     list,
     listitem,
     paragraph,
