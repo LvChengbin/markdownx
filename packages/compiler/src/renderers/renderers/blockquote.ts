@@ -8,7 +8,6 @@
  ******************************************************************/
 
 import { Renderer } from '../../interfaces';
-import escapeTemplateLiterals from '../utils/escape-template-literals';
 
 export default function blockquote(): Renderer {
     return {
