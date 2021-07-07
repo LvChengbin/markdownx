@@ -31,6 +31,10 @@ export default function ImageDemo(): JSX.Element {
             </Typography>
 
             <Typography component="div">
+                <Image src={A} title="Aligned to center" width="50%" align="center" inline={false} />
+            </Typography>
+
+            <Typography component="div">
                 <Image src={A} title="Float to the left" width={300} floatLeft />
                 <p>Stray birds of summer come to my window to sing and fly away. And yellow leaves of autumn, which have no songs, flutter and fall there with a sigh.</p>
                 <p>O troupe of little vagrants of the world, leave your footprints in my words.</p>

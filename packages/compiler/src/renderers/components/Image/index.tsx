@@ -73,6 +73,8 @@ const useStyles = makeStyles( ( { spacing, palette }: Theme ) => {
         },
         image : {
             display : 'block',
+            width : '100%',
+            height : '100%',
             cursor : ( { zoomable }: ImageStyleProps ) => zoomable ? 'zoom-in' : 'inherit'
         },
         note : {
@@ -257,8 +259,8 @@ export default function Image( props: ImageProps ): JSX.Element {
                             floatRight && styles[ 'float-right' ]
                         )}
                     >
-                        <Box component="span" className={styles.box}>
-                            <img {...rest} ref={ref} className={styles.image} src={src} title={title} alt={alt} width={width} height={height} onClick={handleOpenImageViewLayer} />
+                        <Box component="span" className={styles.box} sx={{ width, height }}>
+                            <img {...rest} ref={ref} className={styles.image} src={src} title={title} alt={alt} onClick={handleOpenImageViewLayer} />
                             <Typography component="span" variant="body2" className={styles.note}>{title}</Typography>
                         </Box>
                     </Box>
