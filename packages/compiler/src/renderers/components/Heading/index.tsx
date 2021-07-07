@@ -52,19 +52,19 @@ const useStyles = makeStyles( ( { spacing, palette }: Theme ) => {
         },
         h1 : {},
         h2 : {
-            marginTop : spacing( 1 )
+            marginTop : spacing( 4 )
         },
         h3 : {
-            marginTop : spacing( 1 )
+            marginTop : spacing( 3 )
         },
         h4 : {
-            marginTop : spacing( 1 )
+            marginTop : spacing( 2 )
         },
         h5 : {
-            marginTop : spacing( 1 )
+            marginTop : spacing( 2 )
         },
         h6 : {
-            marginTop : spacing( 1 )
+            marginTop : spacing( 2 )
         }
     } );
 } );

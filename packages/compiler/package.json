@@ -1,6 +1,6 @@
 {
     "name": "@markdownx/compiler",
-    "version": "1.0.12",
+    "version": "1.0.14",
     "main": "lib/index.js",
     "files": [
         "lib"
