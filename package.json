@@ -32,7 +32,7 @@
     },
     "scripts": {
         "test:all": "jest",
-        "lint" : "eslint --ignore-path .eslintignore --cache",
+        "lint": "eslint --ignore-path .eslintignore --cache",
         "lint:all": "eslint packages/**/*.{ts,js,tsx,jsx} ./*.js --ignore-path .eslintignore --cache --fix",
         "lint:staged": "lint-staged",
         "eslint_d:stop": "eslint_d stop",

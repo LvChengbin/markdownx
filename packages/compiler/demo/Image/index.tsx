@@ -12,6 +12,9 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Image from '../../src/renderers/components/Image';
 import A from './a.jpg';
+import XL from './xlarge.jpg';
+import XL_V from './xlarge-v.jpg';
+
 
 export default function ImageDemo(): JSX.Element {
 
@@ -46,6 +49,8 @@ export default function ImageDemo(): JSX.Element {
                     Multiple images.
                     <Image src={A} title="Float to the left" width={30} />
                     <Image src={A} title="Float to the left" width={30} />
+                    <Image src={XL} title="Float to the left" width={30} />
+                    <Image src={XL_V} title="Float to the left" width={30} />
                 </p>
             </Typography>
         </Box>

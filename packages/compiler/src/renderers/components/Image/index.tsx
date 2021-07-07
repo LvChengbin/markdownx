@@ -147,9 +147,30 @@ export default function Image( props: ImageProps ): JSX.Element {
         const { naturalWidth, naturalHeight } = ref.current;
         const { innerWidth, innerHeight } = window;
 
+        const innerAspectRatio = innerWidth / innerHeight;
+        const naturalAspectRatio = naturalWidth / naturalHeight;
+
+        let displayWidth = naturalWidth;
+        let displayHeight = naturalHeight;
+
+        const ratio = .95;
+
+        const validWidth = innerWidth * ratio;
+        const validHeight = innerHeight * ratio;
+
+        if( naturalWidth > innerWidth * ratio || naturalHeight > innerHeight * ratio ) {
+            if( naturalAspectRatio > innerAspectRatio ) {
+                displayWidth = validWidth;
+                displayHeight = displayWidth / naturalAspectRatio;
+            } else if( naturalAspectRatio < innerAspectRatio ) {
+                displayHeight = validHeight;
+                displayWidth = displayHeight * naturalAspectRatio;
+            }
+        }
+
         setImageViewImageStyle( {
-            width : naturalWidth,
-            transform : `translate(${( innerWidth - naturalWidth ) / 2}px, ${ ( innerHeight - naturalHeight ) / 2 }px )`
+            width : displayWidth,
+            transform : `translate(${( innerWidth - displayWidth ) / 2}px, ${ ( innerHeight - displayHeight ) / 2 }px )`
         } );
     };
 
