@@ -1166,12 +1166,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@lvchengbin/is@npm:^1.0.5":
+  version: 1.0.5
+  resolution: "@lvchengbin/is@npm:1.0.5"
+  checksum: 77e52cfc2e6ee49f808483ccf3ad55b6af388930e832c481da7637fde73ef0f03015334c4996e59b9a34362368ee90e63687fcc05de8c3b92cbf3eee3011375e
+  languageName: node
+  linkType: hard
+
 "@markdownx/compiler@workspace:packages/compiler":
   version: 0.0.0-use.local
   resolution: "@markdownx/compiler@workspace:packages/compiler"
   dependencies:
     "@emotion/react": ^11.4.0
     "@emotion/styled": ^11.3.0
+    "@lvchengbin/is": ^1.0.5
     "@material-ui/core": next
     "@material-ui/icons": next
     "@material-ui/styles": next
