@@ -15,11 +15,14 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles( ( { spacing, palette }: Theme ) => {
     return createStyles( {
         root : {
-            margin : 0,
+            margin : `${spacing( 2 )} 0 0`,
             paddingLeft : spacing( 2 ),
             borderLeft : `solid 4px ${palette.grey[ 300 ]}`,
             '&:hover' : {
                 background : palette.grey[ 100 ]
+            },
+            '& > p' : {
+                marginTop : 0
             }
         }
     } );
