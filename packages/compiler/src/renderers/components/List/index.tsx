@@ -17,7 +17,7 @@ const useStyles = makeStyles( () => {
         root : {
             listStyle : 'disc',
             listStylePosition : 'outside',
-            paddingLeft : '1em'
+            paddingLeft : '0 1em'
         },
         ordered : {
             listStyleType : 'decimal'
