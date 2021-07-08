@@ -1,6 +1,6 @@
 {
     "name": "@markdownx/compiler",
-    "version": "1.0.14",
+    "version": "1.0.17",
     "main": "lib/index.js",
     "files": [
         "lib"
@@ -10,6 +10,7 @@
     "scripts": {
         "clean": "rm -rf lib",
         "build": "yarn clean && tsc -b -v && run replace-internal-path",
+        "check": "tsc --noEmit",
         "test": "jest",
         "replace-internal-path": "node scripts/replace-internal-path.js",
         "lint": "eslint {src,test}/**/*.ts --cache --fix --ignore-path .eslintignore",
@@ -52,6 +53,7 @@
         "webpack-dev-server": "^3.11.2"
     },
     "dependencies": {
+        "@lvchengbin/is": "^1.0.5",
         "clsx": "^1.1.1",
         "escape-string-regexp": "^4.0.0",
         "marked": "^2.1.3",

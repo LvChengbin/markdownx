@@ -34,7 +34,7 @@ export default function ImageDemo(): JSX.Element {
                 <Image src={A} title="Aligned to center" width="50%" align="center" inline={false} />
             </Typography>
 
-            <Typography component="div">
+            <Typography component="div" sx={{ overflow : 'auto' }}>
                 <Image src={A} title="Float to the left" width={300} floatLeft />
                 <p>Stray birds of summer come to my window to sing and fly away. And yellow leaves of autumn, which have no songs, flutter and fall there with a sigh.</p>
                 <p>O troupe of little vagrants of the world, leave your footprints in my words.</p>
@@ -56,6 +56,10 @@ export default function ImageDemo(): JSX.Element {
                     <Image src={XL} title="Float to the left" width={30} />
                     <Image src={XL_V} title="Float to the left" width={30} />
                 </p>
+            </Typography>
+
+            <Typography component="div">
+                <Image src={XL} title="Aligned to center" maxWidth="500px" align="center" inline={false} />
             </Typography>
         </Box>
     );

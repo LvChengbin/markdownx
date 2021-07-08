@@ -10,6 +10,7 @@
 import querystring from 'querystring';
 import { Renderer } from '../../interfaces';
 import escapeTemplateLiterals from '../utils/escape-template-literals';
+import jointAttrs from '../utils/joint-attrs';
 
 export default function image(): Renderer {
     return {
@@ -20,28 +21,14 @@ export default function image(): Renderer {
             const [ path, query ] = href.split( '?' );
             const src: string = path.startsWith( 'MDX_IMAGE_MODULE_' ) ? path : `\`${escapeTemplateLiterals( href )}\``;
 
-            const {
-                width = 'auto',
-                height = 'auto',
-                align = 'left',
-                floatLeft = 'false',
-                floatRight = 'false',
-                inline = 'true',
-                zoomable = 'true'
-            } = querystring.parse( query );
+            const attrs = jointAttrs( querystring.parse( query ) as Record<string, string> );
 
             return `
                 <Image className="Markdownx-img"
                     src={${src}}
                     title={\`${escapeTemplateLiterals( text )}\`}
                     alt={\`${escapeTemplateLiterals( text )}\`}
-                    width="${width}"
-                    height="${height}"
-                    align="${align}"
-                    floatLeft={${floatLeft}}
-                    floatRight={${floatRight}}
-                    inline={${inline}}
-                    zoomable={${zoomable}}
+                    ${attrs}
                 />
             `;
         }

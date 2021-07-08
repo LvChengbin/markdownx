@@ -17,6 +17,9 @@ import Typography from '@material-ui/core/Typography';
 import Tooltip from '@material-ui/core/Tooltip';
 import Modal from '@material-ui/core/Modal';
 import Fade from '@material-ui/core/Fade';
+import is from '@lvchengbin/is';
+
+type BooleanStr = 'true' | 'false';
 
 export interface ImageProps {
     className?: string;
@@ -25,23 +28,26 @@ export interface ImageProps {
     title: string;
     width?: number | string;
     height?: number | string;
-    inline?: boolean;
-    floatLeft?: boolean;
-    floatRight?: boolean;
+    maxWidth?: number | string;
+    maxHeight?: number | string;
+    inline?: boolean | BooleanStr;
+    floatLeft?: boolean | BooleanStr;
+    floatRight?: boolean | BooleanStr;
     align?: 'left' | 'right' | 'center';
-    zoomable?: boolean;
+    zoomable?: boolean | BooleanStr;
 };
 
 interface ImageStyleProps {
-    zoomable: boolean;
+    zoomable: boolean | BooleanStr;
 }
 
 const useStyles = makeStyles( ( { spacing, palette }: Theme ) => {
     return createStyles( {
         root : {
+            fontSize : 0,
             display : 'inline-block',
             margin : `0 ${spacing( 1 )}`,
-            cursor : ( { zoomable }: ImageStyleProps ) => zoomable ? 'zoom-in' : 'inherit'
+            cursor : ( { zoomable }: ImageStyleProps ) => is.generalizedTrue( zoomable ) ? 'zoom-in' : 'inherit'
         },
         block : {
             display : 'block'
@@ -75,7 +81,7 @@ const useStyles = makeStyles( ( { spacing, palette }: Theme ) => {
             display : 'block',
             width : '100%',
             height : '100%',
-            cursor : ( { zoomable }: ImageStyleProps ) => zoomable ? 'zoom-in' : 'inherit'
+            cursor : ( { zoomable }: ImageStyleProps ) => is.generalizedTrue( zoomable ) ? 'zoom-in' : 'inherit'
         },
         note : {
             position : 'absolute',
@@ -117,6 +123,8 @@ export default function Image( props: ImageProps ): JSX.Element {
         src, alt, title, className,
         width = 'auto',
         height = 'auto',
+        maxWidth = 'none',
+        maxHeight = 'none',
         align = 'left',
         inline = true,
         floatLeft = false,
@@ -236,9 +244,9 @@ export default function Image( props: ImageProps ): JSX.Element {
                             className={clsx(
                                 styles.root,
                                 styles[ align ],
-                                inline || styles.block,
-                                floatLeft && styles[ 'float-left' ],
-                                floatRight && styles[ 'float-right' ]
+                                is.generalizedFalse( inline ) && styles.block,
+                                is.generalizedTrue( floatLeft ) && styles[ 'float-left' ],
+                                is.generalizedTrue( floatRight ) && styles[ 'float-right' ]
                             )}
                             ref={ref}
                             alt={alt}
@@ -254,12 +262,12 @@ export default function Image( props: ImageProps ): JSX.Element {
                             className,
                             styles.root,
                             styles[ align ],
-                            inline || styles.block,
-                            floatLeft && styles[ 'float-left' ],
-                            floatRight && styles[ 'float-right' ]
+                            is.generalizedFalse( inline ) && styles.block,
+                            is.generalizedTrue( floatLeft ) && styles[ 'float-left' ],
+                            is.generalizedTrue( floatRight ) && styles[ 'float-right' ]
                         )}
                     >
-                        <Box component="span" className={styles.box} sx={{ width, height }}>
+                        <Box component="span" className={styles.box} sx={{ width, height, maxWidth, maxHeight }}>
                             <img {...rest} ref={ref} className={styles.image} src={src} title={title} alt={alt} onClick={handleOpenImageViewLayer} />
                             <Typography component="span" variant="body2" className={styles.note}>{title}</Typography>
                         </Box>
