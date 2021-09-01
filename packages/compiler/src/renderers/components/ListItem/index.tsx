@@ -14,7 +14,8 @@ import { default as L } from '@material-ui/core/ListItem';
 const useStyles = makeStyles( () => {
     return createStyles( {
         root : {
-            display : 'list-item'
+            display : 'list-item',
+            paddingLeft : 0
         }
     } );
 } );
