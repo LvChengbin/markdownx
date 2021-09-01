@@ -16,8 +16,7 @@ export default function checkbox(): Renderer {
         ],
         exec( checked: boolean ): string {
             return `
-                <Checkbox>
-                </Checkbox>
+                <Checkbox defaultChecked={${String( checked )}} />
             `;
         }
     };

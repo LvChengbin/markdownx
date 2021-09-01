@@ -14,9 +14,9 @@ export default function listitem(): Renderer {
         imports : [
             [ 'ListItem', '@@component/ListItem' ]
         ],
-        exec( text: string ): string {
+        exec( text: string, task: boolean ): string {
             return `
-                <ListItem>
+                <ListItem task={${task}}>
                     ${text}
                 </ListItem>
             `;

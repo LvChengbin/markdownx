@@ -8,6 +8,7 @@
  ******************************************************************/
 
 import blockquote from './renderers/blockquote';
+import checkbox from './renderers/checkbox';
 import code from './renderers/code';
 import codespan from './renderers/codespan';
 import container from './renderers/container';
@@ -24,6 +25,7 @@ import toc from './renderers/toc';
 
 export default {
     blockquote,
+    checkbox,
     code,
     codespan,
     container,
