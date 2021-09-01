@@ -28,7 +28,8 @@ module.exports = {
             use : [ {
                 loader : 'ts-loader',
                 options : {
-                    appendTsxSuffixTo : [ /\.mdx?$/ ]
+                    appendTsxSuffixTo : [ /\.mdx?$/ ],
+                    transpileOnly : true
                 }
             }, {
                 loader : '@markdownx/loader',
@@ -39,7 +40,8 @@ module.exports = {
             use : [ {
                 loader : 'ts-loader',
                 options : {
-                    appendTsxSuffixTo : [ /\.mdx?$/ ]
+                    appendTsxSuffixTo : [ /\.mdx?$/ ],
+                    transpileOnly : true
                 }
             } ]
         }, {
