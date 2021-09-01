@@ -1702,7 +1702,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/styles", "virtual:2dd6a769d5aa4a1ac9c3baa797a798ba9c9cd53b83955775059b3b24ca2b3986d018b7a35ee7ef2c413bbdf77090582236df08a374120557698f1be5171feecd#npm:5.0.0-beta.0"],
             ["@testing-library/jest-dom", "npm:5.13.0"],
             ["@types/jest", "npm:26.0.23"],
-            ["@types/marked", "npm:2.0.3"],
+            ["@types/marked", "npm:3.0.0"],
             ["@types/material-ui__core", null],
             ["@types/material-ui__icons", null],
             ["@types/material-ui__styles", null],
@@ -1719,7 +1719,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["html-webpack-plugin", "virtual:0c79f112e2b4508ef02e6833423611ca344fef446612d8636ceaa9cc5606a0bde4fe728fa5485abc607e13b964d0da80e6430d764bb8ed2fe9d0528d6f20da46#npm:5.3.2"],
             ["jest", "virtual:2112dd5dc327c86f8e3150d926b467b87a7c435159207fadd33eb8407de41a154043ced64ff9e3b49635d2600d803cdcefb1fc32f5fc11731ab447181df340e5#npm:27.0.6"],
             ["jest-extended", "npm:0.11.5"],
-            ["marked", "npm:2.1.3"],
+            ["marked", "npm:3.0.2"],
             ["query-string", "npm:7.0.1"],
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:2dd6a769d5aa4a1ac9c3baa797a798ba9c9cd53b83955775059b3b24ca2b3986d018b7a35ee7ef2c413bbdf77090582236df08a374120557698f1be5171feecd#npm:17.0.2"],
@@ -1752,7 +1752,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/styles", "virtual:2dd6a769d5aa4a1ac9c3baa797a798ba9c9cd53b83955775059b3b24ca2b3986d018b7a35ee7ef2c413bbdf77090582236df08a374120557698f1be5171feecd#npm:5.0.0-beta.0"],
             ["@testing-library/jest-dom", "npm:5.13.0"],
             ["@types/jest", "npm:26.0.23"],
-            ["@types/marked", "npm:2.0.3"],
+            ["@types/marked", "npm:3.0.0"],
             ["@types/material-ui__core", null],
             ["@types/material-ui__icons", null],
             ["@types/material-ui__styles", null],
@@ -1769,7 +1769,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["html-webpack-plugin", "virtual:97f966dfde2d15f5cea1ec8ff4dd0523adb12130508ce42d0824a28fe95f74f655df52d4226fddf86fa85102fb03988098274d389d4f613f6383f6273cb9357b#npm:5.3.2"],
             ["jest", "virtual:2112dd5dc327c86f8e3150d926b467b87a7c435159207fadd33eb8407de41a154043ced64ff9e3b49635d2600d803cdcefb1fc32f5fc11731ab447181df340e5#npm:27.0.6"],
             ["jest-extended", "npm:0.11.5"],
-            ["marked", "npm:2.1.3"],
+            ["marked", "npm:3.0.2"],
             ["query-string", "npm:7.0.1"],
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:2dd6a769d5aa4a1ac9c3baa797a798ba9c9cd53b83955775059b3b24ca2b3986d018b7a35ee7ef2c413bbdf77090582236df08a374120557698f1be5171feecd#npm:17.0.2"],
@@ -1809,7 +1809,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material-ui/styles", "virtual:2dd6a769d5aa4a1ac9c3baa797a798ba9c9cd53b83955775059b3b24ca2b3986d018b7a35ee7ef2c413bbdf77090582236df08a374120557698f1be5171feecd#npm:5.0.0-beta.0"],
             ["@testing-library/jest-dom", "npm:5.13.0"],
             ["@types/jest", "npm:26.0.23"],
-            ["@types/marked", "npm:2.0.3"],
+            ["@types/marked", "npm:3.0.0"],
             ["@types/node", "npm:16.0.0"],
             ["@types/react", "npm:17.0.13"],
             ["@types/react-dom", "npm:17.0.8"],
@@ -1823,7 +1823,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["html-webpack-plugin", "virtual:2dd6a769d5aa4a1ac9c3baa797a798ba9c9cd53b83955775059b3b24ca2b3986d018b7a35ee7ef2c413bbdf77090582236df08a374120557698f1be5171feecd#npm:5.3.2"],
             ["jest", "virtual:2112dd5dc327c86f8e3150d926b467b87a7c435159207fadd33eb8407de41a154043ced64ff9e3b49635d2600d803cdcefb1fc32f5fc11731ab447181df340e5#npm:27.0.6"],
             ["jest-extended", "npm:0.11.5"],
-            ["marked", "npm:2.1.3"],
+            ["marked", "npm:3.0.2"],
             ["query-string", "npm:7.0.1"],
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:2dd6a769d5aa4a1ac9c3baa797a798ba9c9cd53b83955775059b3b24ca2b3986d018b7a35ee7ef2c413bbdf77090582236df08a374120557698f1be5171feecd#npm:17.0.2"],
@@ -2462,10 +2462,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@types/marked", [
-        ["npm:2.0.3", {
-          "packageLocation": "./.yarn/cache/@types-marked-npm-2.0.3-98d433b378-60f992edf9.zip/node_modules/@types/marked/",
+        ["npm:3.0.0", {
+          "packageLocation": "./.yarn/cache/@types-marked-npm-3.0.0-9627319a3f-28ec79cb0c.zip/node_modules/@types/marked/",
           "packageDependencies": [
-            ["@types/marked", "npm:2.0.3"]
+            ["@types/marked", "npm:3.0.0"]
           ],
           "linkType": "HARD",
         }]
@@ -9963,10 +9963,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["marked", [
-        ["npm:2.1.3", {
-          "packageLocation": "./.yarn/cache/marked-npm-2.1.3-24a375700c-21a5ecd494.zip/node_modules/marked/",
+        ["npm:3.0.2", {
+          "packageLocation": "./.yarn/cache/marked-npm-3.0.2-c3a572612a-6f88083a7e.zip/node_modules/marked/",
           "packageDependencies": [
-            ["marked", "npm:2.1.3"]
+            ["marked", "npm:3.0.2"]
           ],
           "linkType": "HARD",
         }]
