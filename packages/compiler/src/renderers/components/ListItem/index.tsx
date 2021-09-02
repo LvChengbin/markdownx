@@ -8,6 +8,8 @@
  ******************************************************************/
 
 import React from 'react';
+import clsx from 'clsx';
+import { Theme } from '@material-ui/core/styles';
 import { makeStyles, createStyles } from '@material-ui/styles';
 import { default as L } from '@material-ui/core/ListItem';
 
@@ -16,26 +18,24 @@ export interface ListItemProps {
     children?: React.ReactNode;
 }
 
-export type ListItemStyleProps = ListItemProps;
-
-const useStyles = makeStyles( () => {
+const useStyles = makeStyles( ( { spacing }: Theme ) => {
     return createStyles( {
         root : {
             display : 'list-item',
-            paddingLeft : 0,
-            listStyle : ( { task }: ListItemStyleProps ) => task ? 'none' : 'inherit'
+            paddingLeft : 0
         },
-        inner : {
-            display : 'flex'
+        task : {
+            listStyle : 'none',
+            padding : spacing( .5 )
         }
     } );
 } );
 
 export default function List( { children, task }: ListItemProps ): JSX.Element {
-    const styles = useStyles( { task } );
+    const styles = useStyles();
     return (
-        <L className={styles.root}>
-            <div className={styles.inner}>{children}</div>
+        <L className={clsx( styles.root, task && styles.task )}>
+            {children}
         </L>
     );
 }
