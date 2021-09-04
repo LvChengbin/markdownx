@@ -26,7 +26,7 @@ module.exports = {
     globals : {
         'ts-jest' : {
             isolatedModules : true,
-            tsConfig : 'tsconfig.spec.js'
+            tsconfig : 'tsconfig.spec.json'
         }
     },
     transformIgnorePatterns : [
