@@ -49,13 +49,5 @@
         "commitizen": {
             "path": "cz-conventional-changelog"
         }
-    },
-    "dependenciesMeta": {
-        "@material-ui/core@5.0.0-alpha.36": {
-            "unplugged": true
-        },
-        "@material-ui/icons@5.0.0-alpha.36": {
-            "unplugged": true
-        }
     }
 }
