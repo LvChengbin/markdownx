@@ -8,8 +8,8 @@
  ******************************************************************/
 
 import React from 'react';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 import Image from '../../src/renderers/components/Image';
 import A from './a.jpg';
 import XL from './xlarge.jpg';
@@ -35,7 +35,7 @@ export default function ImageDemo(): JSX.Element {
             </Typography>
 
             <Typography component="div" sx={{ overflow : 'auto' }}>
-                <Image src={A} title="Float to the left" width={300} floatLeft />
+                <Image src={A} title="Float to the left" width={300} float="left" />
                 <p>Stray birds of summer come to my window to sing and fly away. And yellow leaves of autumn, which have no songs, flutter and fall there with a sigh.</p>
                 <p>O troupe of little vagrants of the world, leave your footprints in my words.</p>
             </Typography>

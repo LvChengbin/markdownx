@@ -12,7 +12,7 @@ import { Renderer } from '../../interfaces';
 export default function text(): Renderer {
     return {
         imports : [
-            [ 'Typography', '@material-ui/core/Typography' ]
+            [ 'Typography', '@mui/material/Typography' ]
         ],
         exec( text: string ): string {
             return `

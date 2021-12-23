@@ -8,11 +8,11 @@
  ******************************************************************/
 
 import React from 'react';
-import clsx from 'clsx';
-import { Theme } from '@material-ui/core/styles';
-import { makeStyles, createStyles } from '@material-ui/styles';
+import msx from '@nextseason/msx';
+import { styled } from '@mui/material/styles';
 import { Prism } from 'react-syntax-highlighter';
 import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import Box from '@mui/material/Box';
 import Copy from '../Copy';
 
 export interface CodeProps {
@@ -22,80 +22,68 @@ export interface CodeProps {
     component?: React.ReactNode;
 };
 
-const useStyles = makeStyles( ( { spacing, palette, shape, breakpoints }: Theme ) => {
-    return createStyles( {
-        root : {
-            position : 'relative',
-            marginTop : spacing( 2 )
+const Demo = styled( Box )( ( { theme } ) => {
+    const { spacing, palette, breakpoints } = theme;
+
+    return {
+        display : 'flex',
+        flexWrap : 'wrap',
+        justifyContent : 'center',
+        alignItems : 'center',
+        padding : spacing( 4, 2 ),
+        border : `solid 1px ${palette.grey[ 300 ]}`,
+        borderRadius : 1,
+        marginBottom : spacing( 2 ),
+        background : palette.common.white,
+        '&>*' : {
+            margin : spacing( 1 )
         },
-        block : {
-            padding : spacing( 2 ),
-            background : palette.grey[ 200 ],
-            borderRadius : shape.borderRadius,
-            [ breakpoints.down( 'md' ) ] : {
-                padding : spacing( 1 )
-            }
-        },
-        btnbox : {
-            position : 'absolute',
-            right : spacing( 1.5 ),
-            top : spacing( 1.5 ),
-            color : palette.common.white
-        },
-        btn : {
-            opacity : .6,
-            cursor : 'pointer',
-            fontSize : '14px',
-            '&:hover' : {
-                opacity : 1
-            }
-        },
-        demo : {
-            display : 'flex',
-            flexWrap : 'wrap',
-            justifyContent : 'center',
-            alignItems : 'center',
-            padding : spacing( 4, 2 ),
-            border : `solid 1px ${palette.grey[ 300 ]}`,
-            borderRadius : shape.borderRadius,
-            marginBottom : spacing( 2 ),
-            background : palette.common.white,
-            '&>*' : {
-                margin : spacing( 1 )
-            },
-            [ breakpoints.down( 'md' ) ] : {
-                padding : spacing( 2, 1 )
-            }
-        },
-        code : {
-            margin : 0,
-            position : 'relative',
-            '& pre' : {
-                margin : '0!important'
-            }
+        [ breakpoints.down( 'md' ) ] : {
+            padding : spacing( 2, 1 )
         }
-    } );
+    };
 } );
 
 export default function Code( { lang, code, component }: CodeProps ): JSX.Element {
-    const styles = useStyles();
 
     return (
-        <div className={clsx( styles.root, component && styles.block )}>
-            { !!component && (
-                <div className={styles.demo}>
-                    {component}
-                </div>
-            ) }
-            <div className={styles.code}>
-                <div className={styles.btnbox}>
-                    <Copy content={code} className={styles.btn} />
-                </div>
+        <Box
+            sx={msx(
+                { position : 'relative', mt : 2 },
+                component && ( {
+                    p : { sm : 1, md : 2 },
+                    bgcolor : 'grey.200',
+                    borderRadius : 1
+                } )
+            )}
+        >
+            { !!component && <Demo>{component}</Demo> }
+            <Box
+                sx={{
+                    m : 0,
+                    position : 'relative',
+                    '& pre' : {
+                        m : 0
+                    }
+                }}
+            >
+                <Box sx={{ position : 'absolute', right : 1.5, top : 1.5, color : 'common.white' }}>
+                    <Copy content={code}
+                        sx={{
+                            opacity : .6,
+                            cursor : 'pointer',
+                            fontSize : 14,
+                            '&:hover' : {
+                                opacity : 1
+                            }
+                        }}
+                    />
+                </Box>
                 {/* eslint-disable-next-line react/forbid-component-props */}
                 <Prism language={lang} style={okaidia}>
                     {code}
                 </Prism>
-            </div>
-        </div>
+            </Box>
+        </Box>
     );
 }

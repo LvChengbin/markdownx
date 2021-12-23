@@ -8,32 +8,24 @@
  ******************************************************************/
 
 import React from 'react';
-import { Theme } from '@material-ui/core/styles';
-import { makeStyles, createStyles } from '@material-ui/styles';
-import Typography from '@material-ui/core/Typography';
+import { SxProps, Theme } from '@mui/material/styles';
+import Typography, { TypographyProps } from '@mui/material/Typography';
 
-const useStyles = makeStyles( ( { spacing }: Theme ) => {
-    return createStyles( {
-        root : {
-            marginTop : spacing( 2 ),
-            lineHeight : 2,
-            /**
-             * clearfix
-             */
-            overflow : 'auto'
-        }
-    } );
-} );
+export interface ParagraphProps extends TypographyProps {
+    sx?: SxProps<Theme>;
+}
 
-export interface ParagraphProps {
-    children?: React.ReactNode;
-};
+export default function Paragraph( props: ParagraphProps ): JSX.Element {
 
-export default function Paragraph( { children }: ParagraphProps ): JSX.Element {
-    const styles = useStyles();
+    const { sx = [], children, ...rest } = props;
 
     return (
-        <Typography variant="body1" className={styles.root}>
+        <Typography variant="body1" {...rest}
+            sx={[
+                { mt : 2, lineHeight : 2, overflow : 'auto' },
+                ...( Array.isArray( sx ) ? sx : [ sx ] )
+            ]}
+        >
             {children}
         </Typography>
     );

@@ -1,73 +1,61 @@
 /******************************************************************
  * Copyright (C) 2021 LvChengbin
  *
- * File: Documentation/index.tsx
+ * File: demo/Page.tsx
  * Author: LvChengbin<lvchengbin59@gmail.com>
- * Time: 03/20/2021
+ * Time: 12/20/2021
  * Description:
  ******************************************************************/
 
 import React from 'react';
-import { Route, BrowserRouter as Router, NavLink, Switch } from 'react-router-dom';
-import { Theme } from '@material-ui/core/styles';
-import { makeStyles, createStyles } from '@material-ui/styles';
-import Box from '@material-ui/core/Box';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-// import StarRateIcon from '@material-ui/icons/StarRate';
+import { Route, BrowserRouter as Router, NavLink, Routes } from 'react-router-dom';
+import Box, { BoxProps } from '@mui/material/Box';
+import { default as MuiList } from '@mui/material/List';
+import { default as MuiListItem } from '@mui/material/ListItem';
 import Image from './Image';
 import Blockquote from './Blockquote';
 import Link from './Link';
+import Code from './Code';
+import Codespan from './Codespan';
+import Heading from './Heading';
+import Paragraph from './Paragraph';
+import Checkbox from './Checkbox';
+import List from './List';
+import Strong from './Strong';
 
 const components = {
     Image,
     Blockquote,
-    Link
+    Link,
+    Code,
+    Codespan,
+    Heading,
+    Paragraph,
+    List,
+    Checkbox,
+    Strong
 };
 
-const useStyles = makeStyles( ( { palette, spacing }: Theme ) => {
+const navWidth = 256 / 8;
 
-    const navWidth = '260px';
-    const border = `solid 1px ${palette.grey[ 300 ]}`;
-
-    return createStyles( {
-        root : {
-            paddingLeft : navWidth
-        },
-        aside : {
-            background : palette.grey[ 100 ],
-            borderRight : border,
-            position : 'fixed',
-            left : 0,
-            top : 0,
-            bottom : 0,
-            width : navWidth,
-            height : '100vh',
-            overflow : 'auto'
-        },
-        hr : {
-            border,
-            borderBottom : 0
-        },
-        nav : {},
-        title : {
-            padding : spacing( 2 ),
-            borderBottom : border
-        },
-        logo : {
-            fontSize : '24px',
-            padding : spacing( 1 )
-        },
-        tm : {},
-        version : {
-            color : palette.grey[ 600 ],
-            marginLeft : spacing( 1 )
-        },
-        main : {
-            padding : `${spacing( 3 )} ${spacing( 4 )}`
-        }
-    } );
-} );
+function Aside( props: BoxProps ): JSX.Element {
+    return (
+        <Box {...props}
+            sx={{
+                bgcolor : 'grey.100',
+                borderRight : 1,
+                borderColor : 'grey.300',
+                position : 'fixed',
+                left : 0,
+                top : 0,
+                bottom : 0,
+                width : navWidth * 8,
+                height : '100vh',
+                overflow : 'auto'
+            }}
+        />
+    );
+}
 
 interface NavItem {
     text?: string;
@@ -92,44 +80,46 @@ function MarkedNavItem( props: MarkedNavItemProps ): JSX.Element {
 const list: NavItem[] = [
     { text : 'Image' },
     { text : 'Blockquote' },
-    { text : 'Link' }
+    { text : 'Link' },
+    { text : 'Code' },
+    { text : 'Codespan' },
+    { text : 'Heading' },
+    { text : 'Paragraph' },
+    { text : 'Strong' },
+    { text : 'List' },
+    { text : 'Checkbox' }
 ];
 
 const to = ( item: NavItem ): string => {
     return item.to ? `/${item.to ?? ''}` : `/${item.text?.replace( /\s/g, '-' ) ?? ''}`;
 };
 
-export default function Documentation(): JSX.Element {
-    const styles = useStyles();
+export default function Page(): JSX.Element {
 
     return (
         <Router>
-            <Box className={styles.root}>
-                <Box className={styles.aside}>
-                    <Box className={styles.logo}><span className={styles.tm}>Markdownx</span> React Components</Box>
-                    <Box className={styles.version}>version1.0.0</Box>
-                    <hr className={styles.hr} />
-                    <List className={styles.nav} component="nav">
+            <Box sx={{ pl : navWidth }}>
+                <Aside>
+                    <Box sx={{ fontSize : 24, p : 1 }}><span>Markdownx</span> React Components</Box>
+                    <Box sx={{ color : 'grey.600', ml : 1 }}>version1.0.0</Box>
+                    <Box component="hr" sx={{ border : 1, borderColor : 'grey.300', borderBottom : 0 }} />
+                    <MuiList component="nav">
                         { list.map( ( item: NavItem ): JSX.Element => {
                             return (
-                                <ListItem button component={NavLink} to={to( item )} key={to( item )} activeClassName="Mui-selected">
-                                    { item.component ? <ListItem>{ item.component }</ListItem> : <ListItem>{item.text}</ListItem> }
-                                </ListItem>
+                                <MuiListItem button component={NavLink} to={to( item )} key={to( item )}>
+                                    { item.component ? <MuiListItem>{ item.component }</MuiListItem> : <MuiListItem>{item.text}</MuiListItem> }
+                                </MuiListItem>
                             );
                         } ) }
-                    </List>
-                </Box>
-                <Box className={styles.main}>
-                    <Switch>
+                    </MuiList>
+                </Aside>
+                <Box sx={{ p : [ 3, 4 ] }}>
+                    <Routes>
                         { list.map( ( item: NavItem ): JSX.Element => {
                             const Component = components[ ( item.content ?? item.text ) as keyof typeof components ];
-                            return (
-                                <Route path={to( item )} key={to( item )}>
-                                    <Component />
-                                </Route>
-                            );
+                            return <Route path={to( item )} key={to( item )} element={<Component />} />;
                         } ) }
-                    </Switch>
+                    </Routes>
                 </Box>
             </Box>
         </Router>

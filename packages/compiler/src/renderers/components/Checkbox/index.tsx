@@ -8,21 +8,14 @@
  ******************************************************************/
 
 import React from 'react';
-import { default as MUICheckbox } from '@material-ui/core/Checkbox';
-import { createStyles, withStyles, WithStyles } from '@material-ui/styles';
+import { default as MUICheckbox, CheckboxProps } from '@mui/material/Checkbox';
+import { styled } from '@mui/material/styles';
 
-const styles = createStyles( {
-    root : {
-        padding : '0 2px',
-        '&:hover' : {
-            backgroundColor : 'transparent'
-        }
+export default styled(
+    ( props: CheckboxProps ) => <MUICheckbox size="small" {...props} disableRipple readOnly />
+)( {
+    padding : '0 2px',
+    '&:hover' : {
+        backgroundColor : 'transparent'
     }
 } );
-
-const Checkbox = withStyles( styles )( ( props: WithStyles<typeof styles > ) => {
-    const { classes, ...x } = props;
-    return <MUICheckbox size="small" className={classes.root} disableRipple readOnly {...x} />;
-} );
-
-export default Checkbox;

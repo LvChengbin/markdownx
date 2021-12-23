@@ -68,13 +68,7 @@ module.exports = ( env, argv ) => {
         devServer : {
             port : 20000,
             historyApiFallback : true,
-            watchContentBase : false,
-            hot : true,
-            watchOptions : {
-                aggregateTimeout : 100,
-                poll : false,
-                ignored : [ '**/test/**' ]
-            }
+            hot : true
         }
     };
 };

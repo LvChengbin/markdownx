@@ -8,7 +8,7 @@
  ******************************************************************/
 
 import qs from 'query-string';
-import marked from 'marked';
+import { marked } from 'marked';
 import renderers from './renderers';
 import { frags } from './frags';
 import increment from './index-counter';

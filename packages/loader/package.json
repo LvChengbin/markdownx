@@ -1,6 +1,6 @@
 {
     "name": "@markdownx/loader",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "main": "lib/index.js",
     "files": [
         "lib"
@@ -12,25 +12,26 @@
         "build": "yarn clean && tsc -b -v",
         "test": "jest",
         "lint": "eslint {src,test}/**/*.ts --cache --fix",
+        "check": "yarn tsc --noEmit",
         "postpack": "run clean",
         "prepack": "run build"
     },
     "dependencies": {
         "@markdownx/compiler": "workspace:packages/compiler",
-        "loader-utils": "^2.0.0"
+        "loader-utils": "^3.2.0"
     },
     "devDependencies": {
-        "@testing-library/jest-dom": "^5.13.0",
-        "@types/node": "^16.7.10",
-        "@typescript-eslint/eslint-plugin": "^4.28.1",
-        "@typescript-eslint/parser": "^4.28.1",
+        "@testing-library/jest-dom": "^5.16.1",
+        "@types/node": "^17.0.0",
+        "@typescript-eslint/eslint-plugin": "^5.8.0",
+        "@typescript-eslint/parser": "^5.8.0",
         "@ynn/eslint-plugin": "^0.0.5",
-        "eslint": "^7.32.0",
-        "eslint_d": "^10.1.3",
-        "jest": "^27.1.0",
-        "jest-extended": "^0.11.5",
-        "ts-jest": "^27.0.3",
-        "typescript": "^4.4.2"
+        "eslint": "^8.5.0",
+        "eslint_d": "^11.1.1",
+        "jest": "^27.4.5",
+        "jest-extended": "^1.2.0",
+        "ts-jest": "^27.1.2",
+        "typescript": "^4.5.4"
     },
     "peerDependencies": {
         "@markdownx/compiler": "*",

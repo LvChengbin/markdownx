@@ -8,16 +8,7 @@
  ******************************************************************/
 
 import React from 'react';
-import { makeStyles, createStyles } from '@material-ui/styles';
-import { default as L } from '@material-ui/core/Link';
-
-
-const useStyles = makeStyles( () => {
-    return createStyles( {
-        root : {
-        }
-    } );
-} );
+import { default as L } from '@mui/material/Link';
 
 export interface LinkProps {
     href: string;
@@ -26,7 +17,6 @@ export interface LinkProps {
 };
 
 export default function Link( props: LinkProps ): JSX.Element {
-    const styles = useStyles();
 
     const {
         href,
@@ -44,7 +34,7 @@ export default function Link( props: LinkProps ): JSX.Element {
     currentURL.hash = '';
 
     return (
-        <L className={styles.root}
+        <L
             href={href}
             title={title}
             target={targetURL.href !== currentURL.href ? '_blank' : '_self'}
