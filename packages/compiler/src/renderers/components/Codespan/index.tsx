@@ -9,33 +9,32 @@
 
 
 import React from 'react';
-import { Theme } from '@material-ui/core/styles';
-import { makeStyles, createStyles } from '@material-ui/styles';
+import clsx from 'clsx';
+import { SxProps, Theme } from '@mui/material/styles';
+import Box from '@mui/material/Box';
 
 export interface CodespanProps {
     code?: string;
+    className?: string;
+    sx?: SxProps<Theme>;
 };
 
-const useStyles = makeStyles( ( { palette }: Theme ) => {
-    return createStyles( {
-        root : {
-            color : palette.primary.main,
-            background : palette.grey[ 200 ],
-            fontSize : 14,
-            borderRadius : 3,
-            padding : '2px 4px',
-            margin : 4
-        }
-    } );
-} );
-
 export default function Codespan( props: CodespanProps ): JSX.Element {
-    const styles = useStyles( props );
-    const { code } = props;
+    const { code, className, sx = [] } = props;
 
     return (
-        <span className={styles.root}
-            dangerouslySetInnerHTML={{ __html : code ?? '' }}
+        <Box component="span" className={clsx( className )} dangerouslySetInnerHTML={{ __html : code ?? '' }}
+            sx={[
+                {
+                    color : 'primary.main',
+                    bgcolor : 'grey.200',
+                    fontSize : 14,
+                    borderRadius : 1,
+                    p : '2px 4px',
+                    m : 1
+                },
+                ...( Array.isArray( sx ) ? sx : [ sx ] )
+            ]}
         />
     );
 }

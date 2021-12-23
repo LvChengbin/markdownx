@@ -61,11 +61,6 @@ module.exports = {
     devServer : {
         port : '11000',
         historyApiFallback : true,
-        hot : true,
-        watchOptions : {
-            watchContentBase : true,
-            aggregateTimeout : 100,
-            poll : false
-        }
+        hot : true
     }
 };

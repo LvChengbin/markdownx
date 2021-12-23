@@ -9,37 +9,18 @@
 
 import React, { useRef } from 'react';
 import clsx from 'clsx';
-import { makeStyles, createStyles } from '@material-ui/styles';
-import FileCopyIcon from '@material-ui/icons/FileCopy';
+import FileCopyIcon from '@mui/icons-material/FileCopy';
+import { SxProps, Theme } from '@mui/material/styles';
+import Box from '@mui/material/Box';
 
 export interface CopyProps {
     className?: string;
     content?: string;
+    sx?: SxProps<Theme>;
 };
 
-const useStyles = makeStyles( () => {
-    return createStyles( {
-        root : {
-            display : 'inline-block',
-            cursor : 'pointer'
-        },
-        input : {
-            opacity : 0,
-            width : 0,
-            height : 0,
-            position : 'fixed',
-            left : '-99999px',
-            top : '-99999px'
-        },
-        icon : {
-            fontSize : 'inherit'
-        }
-    } );
-} );
-
 export default function Copy( props: CopyProps ): JSX.Element {
-    const styles = useStyles( props );
-    const { content, className } = props;
+    const { content, className, sx = [] } = props;
     const input = useRef<HTMLTextAreaElement>( null );
 
     const handleCopy = (): void => {
@@ -48,9 +29,16 @@ export default function Copy( props: CopyProps ): JSX.Element {
     };
 
     return (
-        <div className={clsx( styles.root, className )}>
-            <FileCopyIcon fontSize="small" onClick={handleCopy} className={styles.icon} />
-            <textarea className={styles.input} ref={input} value={content} readOnly />
-        </div>
+        <Box className={clsx( className )}
+            sx={[
+                { display : 'inline-block', cursor : 'pointer' },
+                ...( Array.isArray( sx ) ? sx : [ sx ] )
+            ]}
+        >
+            <FileCopyIcon fontSize="small" onClick={handleCopy} sx={{ fontSize : 'inherit' }} />
+            <Box component="textarea" ref={input} value={content} readOnly
+                sx={{ opacity : 0, width : 0, height : 0, position : 'fixed', left : -99999, top : -99999 }}
+            />
+        </Box>
     );
 }

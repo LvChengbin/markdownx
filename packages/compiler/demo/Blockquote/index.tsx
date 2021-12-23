@@ -8,7 +8,7 @@
  ******************************************************************/
 
 import React from 'react';
-import Box from '@material-ui/core/Box';
+import Box from '@mui/material/Box';
 import Blockquote from '../../src/renderers/components/Blockquote';
 
 export default function BlockquoteDemo(): JSX.Element {

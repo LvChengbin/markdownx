@@ -8,23 +8,13 @@
  ******************************************************************/
 
 import React from 'react';
-import { Theme } from '@material-ui/core/styles';
-import { makeStyles, createStyles } from '@material-ui/styles';
+import Box from '@mui/material/Box';
 import IndexMDX from '../markdown';
 
-const useStyles = makeStyles( ( { spacing }: Theme ) => {
-    return createStyles( {
-        root : {
-            padding : `${spacing( 3 )}px ${spacing( 4 )}px`
-        }
-    } );
-} );
-
 export default function Documentation(): JSX.Element {
-    const styles = useStyles();
     return (
-        <div className={styles.root}>
+        <Box p={3} pl={4} pr={4}>
             <IndexMDX />
-        </div>
+        </Box>
     );
 }

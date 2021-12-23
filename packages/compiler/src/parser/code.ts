@@ -7,7 +7,7 @@
  * Description:
  ******************************************************************/
 
-import { Tokens } from 'marked';
+import { marked } from 'marked';
 
 export type ParseCodeTokenOptions = {
     moduleId: string;
@@ -56,9 +56,9 @@ function interpolate( tpl: string, options: ParseCodeTokenOptions ): {
  * @param {Marked.Token} token
  * @param {ParseCodeTokenOptions} options
  */
-function token( token: Tokens.Code, options: ParseCodeTokenOptions ): {
+function token( token: marked.Tokens.Code, options: ParseCodeTokenOptions ): {
     imports: string[];
-    token: Tokens.Code & { invocation: string };
+    token: marked.Tokens.Code & { invocation: string };
 } {
     const { raw = '', lang = '', text = '' } = token;
 

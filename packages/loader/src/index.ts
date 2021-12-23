@@ -9,7 +9,7 @@
 
 import compile, { frags } from '@markdownx/compiler';
 import qs from 'querystring';
-import { getOptions, FragsCache } from 'loader-utils';
+import { FragsCache } from 'loader-utils';
 
 export default function( this: FragsCache, source: string ): string {
     const { resourcePath, resourceQuery } = this;
@@ -26,7 +26,7 @@ export default function( this: FragsCache, source: string ): string {
     const options = {
         path : resourcePath,
         query : resourceQuery,
-        ...getOptions( this )
+        ...this.getOptions()
     };
 
     return compile( options )( source );
