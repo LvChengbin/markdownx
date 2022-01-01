@@ -98,7 +98,6 @@ export default ( options: CompileOptions ): ( source: string ) => string => {
                     } );
                 }
 
-
                 if( mixedRenderers[ cur ] ) {
                     const { imports, exec } = mixedRenderers[ cur ]( options );
                     imports.forEach( x => importPool.add( x ) );

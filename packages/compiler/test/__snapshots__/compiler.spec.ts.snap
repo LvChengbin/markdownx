@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`compiler HTML Tags Using <iframe /> tag 1`] = `
+"
+import React from 'react';
+import HTML from '@@component/HTML';;
+import Container from '@@component/Container';;
+import Toc from '@@component/Toc';;
+import Root from '@@component/Root';
+export default function MDX_COMPONENT_2( props: any = {} ): JSX.Element {
+    return (
+        <div {...props}>
+            
+            
+                <Root>
+                <Toc toc={[]} />
+            
+                <Container>
+                <HTML content={\`<iframe style=\\"border: 1px solid rgba(0, 0, 0, 0.1);\\" width=\\"800\\" height=\\"450\\" src=\\"https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FQ0rPf5bXLBnX8uxOhKXId3%2FUntitled%3Fnode-id%3D0%253A1\\" allowfullscreen></iframe>\`} />
+            </Container>
+            </Root>
+            
+        </div>
+    );
+}
+"
+`;

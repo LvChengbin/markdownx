@@ -22,6 +22,7 @@ import Paragraph from './Paragraph';
 import Checkbox from './Checkbox';
 import List from './List';
 import Strong from './Strong';
+import Html from './HTML';
 
 const components = {
     Image,
@@ -33,7 +34,8 @@ const components = {
     Paragraph,
     List,
     Checkbox,
-    Strong
+    Strong,
+    Html
 };
 
 const navWidth = 256 / 8;
@@ -80,6 +82,7 @@ function MarkedNavItem( props: MarkedNavItemProps ): JSX.Element {
 const list: NavItem[] = [
     { text : 'Image' },
     { text : 'Blockquote' },
+    { text : 'Html' },
     { text : 'Link' },
     { text : 'Code' },
     { text : 'Codespan' },

@@ -13,6 +13,7 @@ import code from './renderers/code';
 import codespan from './renderers/codespan';
 import container from './renderers/container';
 import heading from './renderers/heading';
+import html from './renderers/html';
 import image from './renderers/image';
 import link from './renderers/link';
 import list from './renderers/list';
@@ -30,6 +31,7 @@ export default {
     codespan,
     container,
     heading,
+    html,
     image,
     link,
     list,
